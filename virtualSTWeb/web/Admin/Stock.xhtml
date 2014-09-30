@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+
+
+            <ui:define name="content">
+              
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        
+
+                        <h1 id="main-heading">
+                            <u>Stock Details</u>
+                        </h1>
+                    </div>
+  <h:form>
+                    <div id="main-content">
+                          <ui:fragment rendered="#{not empty stockmBean.operation}">
+                               <div class="alert alert-success fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Success:</strong><br/>
+                                        Record is #{stockmBean.operation}  Successfully....
+                               </div>
+                              </ui:fragment> 
+                      
+                        <h:outputLink value="Stock_Add.xhtml" class="btn btn-info">Add New</h:outputLink>          
+                        <span id="pnotify-trigger-7" >
+                            <h:commandButton value="Delete"  class="btn btn-danger" action="#{stockmBean.deleteStock()}" >
+                         
+                        </h:commandButton> </span>
+                        <br/>
+                        <hr/>
+                        <div class="row-fluid">
+                            <div class="span12 widget">
+                                <div class="widget-header">
+                                    <span class="title">Stock Details</span>
+                                </div>
+                                <div class="widget-content table-container">
+                                    
+                                    <table id="demo-dtable-02" class="table table-striped  table-checkable">
+                                        <thead>
+                                            <tr>
+                                                                                                            <th class="checkbox-column">
+                                                                <input type="checkbox" class="uniform"/>
+                                                            </th>
+
+                                                <th>Script Id</th>
+                                                <th>Script Code</th>
+                                                <th>Group</th>
+                                                <th>Industry</th>
+                                                <th>Listing Date</th>
+                                                <th>Company Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ui:repeat value="#{stockmBean.objData}" var="data">
+                                            <tr>
+                                              <td class="checkbox-column">
+                                                       <h:selectBooleanCheckbox  value="#{stockmBean.selectedIds[data.scriptId]}"  class="uniform"  />
+                                              </td>
+                                                <td><h:commandLink  value="#{data.scriptId}" action="#{stockmBean.renderForm(data.scriptId)}"/></td>
+                                              <td><h:outputText value="#{data.scriptCode}"/></td>
+                                              <td><h:outputText value="#{data.groupType}"/></td>
+                                              <td><h:outputText value="#{data.industry}"/></td>
+                                              <td><h:outputText value="#{data.listingDate.toGregorianCalendar().time}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText></td>
+                                              <td><h:outputText value="#{data.companyName}"/></td>
+                                            </tr>
+                                             </ui:repeat>
+                                        </tbody>
+                                        
+                                    </table>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                         
+                    </div>
+       </h:form> 
+                </section>  
+                 
+            </ui:define>
+
+
+
+        </ui:composition>
+  
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Transaction Report</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            
+                 
+              
+                
+           
+            <p:dataTable id="tbl" var="data" value="#{sessionScope.objTraderTrans}" > 
+
+              
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Trader Name" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.orderId.traderId.traderName}" />  
+                </p:column>  
+                
+                 <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Script Id" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.orderId.scriptId.scriptId}" />  
+                </p:column>  
+                
+                 <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Transaction Date" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.transDate.toGregorianCalendar().time}"><f:convertDateTime pattern="dd-mm-yyyy" />                                </h:outputText>
+                </p:column> 
+                
+                 <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Price" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.orderId.price}" />  
+                </p:column>  
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Volume" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.orderId.volume}" />  
+                </p:column>  
+                
+               
+                
+               
+                
+                 <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Type" />  
+                    </f:facet>  
+                     <h:outputText value="#{data.orderId.orderType eq 'B'?'Buy':'Sell'}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Comision" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.brokrage}" ><f:convertNumber maxFractionDigits="2"/></h:outputText>  
+                </p:column>  
+
+
+              </p:dataTable>  
+
+ <h:commandLink>
+                <p:graphicImage height="70" value="../theme_assets/assets/images/Microsoft Office - Excel.png" />
+                <p:dataExporter type="xls" target="tbl" fileName="Transaction_Report" />
+            </h:commandLink>
+
+            <h:commandLink>
+                <p:graphicImage height="70" value="../theme_assets/assets/images/Acrobat Document.png" />
+                <p:dataExporter type="pdf" target="tbl" fileName="Transaction_Report" />
+            </h:commandLink>
+
+            
+
+        </h:form>
+    </h:body>
+</html>
+

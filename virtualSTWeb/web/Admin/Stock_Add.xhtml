@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+
+
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        
+
+                        <h1 id="main-heading">
+                            <u>Add Stock Details</u>
+                        </h1>
+                    </div>
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>Stock</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+
+                                        <table width="100%">
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input11">Script Id<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.scriptId}" class="validate[required] span11" id="Id" required="true"  />    
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input12">Script Code <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.scriptCode}"  class="validate[required] text-input span11" id="Code" required="true" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Group Type <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:selectOneMenu value="#{stockmBean.groupType}" required="true" id="Group" class="select2-select-00 span11 validate[required]">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="A" itemValue="A"  />
+                                                                <f:selectItem itemLabel="B" itemValue="B" />
+                                                                <f:selectItem itemLabel="C" itemValue="C" />
+                                                                <f:selectItem itemLabel="D" itemValue="D" />
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Industry <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:selectOneMenu value="#{stockmBean.industry}" required="true" id="Industry" class="select2-select-00 span11 validate[required]">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="IT" itemValue="IT"  />
+                                                                <f:selectItem itemLabel="Automobile" itemValue="Automobile" />
+                                                                <f:selectItem itemLabel="Banking" itemValue="Banking" />
+                                                                <f:selectItem itemLabel="Finance" itemValue="Finance" />
+                                                            </h:selectOneMenu>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input16">Market Lot<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.marketLot}" class="validate[required,custom[integer]] span11" id="Lot" required="true"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Listing Date<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.listingDate}"  class="validate[custom[date]] datepicker-cmy  span11" id="Date" required="true" >
+                                                                <f:convertDateTime dateStyle="short" pattern="MM/dd/yyyy" type="date" /> 
+                                                            </h:inputText>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input16">Company Name<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.companyName}" class="validate[required] span11" id="Company" required="true"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Face Value<span class="required">*</span></label>
+                                                        <div class="controls">
+
+                                                            <h:inputText value="#{stockmBean.faceValue}" class="span11 validate[required,custom[integer]]" id="Face" required="true" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input13">Address <span  class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputTextarea value="#{stockmBean.address}" class="validate[required] required span12" id="Address" required="true"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">State <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                        <h:selectOneMenu id="state" value="#{stockmBean.stateId}" class="select2-select-00 span11 validate[required]">  
+                                                            <f:selectItem  itemLabel="Select City" itemValue=""  />  
+                                                            <f:selectItems value="#{stockmBean.allStates}" var="mydata" itemLabel="#{mydata.stateName}" itemValue="#{mydata.stateId}"/>  
+                                                            <f:ajax  event="change" render="city"   listener="#{stockmBean.handleCityChange()}" />                                                                                                   
+                                                        </h:selectOneMenu>  
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">City <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                         <h:selectOneMenu  id="city"  value="#{stockmBean.cityName}" >  
+                                                            <f:selectItem itemLabel="Select City" />  
+                                                            <f:selectItems value="#{stockmBean.objcity}" var="city" itemLabel="#{city.cityName}"  itemValue="#{city.cityName}" />  
+                                                        </h:selectOneMenu> 
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input11">Phone No<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.phoneno}" class="validate[required,minSize[10],custom[integer]] text-input span11" id="Phone" required="true"  />    
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input12">Fax<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.fax}" class="validate[required,minSize[6],custom[integer]] text-input span11" id="Fax" required="true" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input11">Email<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText  value="#{stockmBean.emailId}"  class="validate[required,custom[email]] text-input span11" id="Email" required="true"  />    
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="input12">Website<span class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.website}" class="validate[required,custom[url]] text-input span11" id="Website" required="true" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="control-group">
+                                                        <label class="control-label">Director<span 
+                                                                class="required">*</span></label>
+                                                        <div class="controls">
+                                                            <h:inputText value="#{stockmBean.director}" class="validate[required]] span12" id="Deposit" required="true" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                       
+                                        <div class="form-actions">
+                                            <h:commandButton value="Upadte"  rendered="#{sessionScope.action eq 'update'}"   action="#{stockmBean.updateStock()}" class="btn btn-primary"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                               
+                                                     
+                                            <h:commandButton value="Add" rendered="#{sessionScope.action eq 'add'}"  action="#{stockmBean.addStock()}" class="btn btn-primary"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             
+                                          
+                                            <h:outputLink value="Stock.xhtml" class="btn">cancel</h:outputLink>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </section>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+
+</html>

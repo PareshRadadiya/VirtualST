@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+
+            <ui:define name="content">
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        
+
+                        <h1 id="main-heading">
+                            <u>Stock Buy</u>
+                        </h1>
+                    </div>
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <ui:fragment rendered="#{not empty stockDetailBean.operation}">
+                                 <h:outputText escape="false" value="#{stockDetailBean.operation}"/>                    
+                              </ui:fragment> 
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>Buy</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Stock Symbol</label>
+                                                        <div class="controls">
+                                                            <p:inputText value="#{stockDetailBean.stock_Symbol}" id="Symbol" styleClass="validate[required,custom[onlyLetterSp]]  span11"  required="true">
+                                                               <p:ajax event="change" update="Symbolmsg btnBuy" listener="#{stockDetailBean.handleStockChange()}"/>
+                                                            </p:inputText>
+                                                             <h:outputText escape="false"  id="Symbolmsg" value="#{stockDetailBean.msg}"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Price</label>
+                                                        <div class="controls">
+                                                            <p:inputText value="#{stockDetailBean.price}" id="Price" styleClass="validate[required,custom[number]]  span11" >
+                                                                <p:ajax update="btnBuy msgPrice" event="keyup" />  
+                                                            </p:inputText>
+                                                            <p:message for="Price"   id="msgPrice" display="icon"/> 
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr><td>
+                                                <div class="control-group">
+                                                    <label class="control-label">Volume</label>
+                                                    <div class="controls">
+                                                        <p:inputText  value="#{stockDetailBean.volume}" styleClass="validate[required,custom[integer]]  text-input span11" id="volume" required="true"  > 
+                                                            <p:ajax event="keyup"  process="volume Price Trader btnBuy" update="msg btnBuy msgvolume" listener="#{stockDetailBean.checkFund(stockDetailBean.traderId)}"/>                     
+                                                        </p:inputText>  
+                                                        <h:outputText escape="false"  id="msg" value="#{stockDetailBean.msg}"/>
+                                                         <p:message for="volume"   id="msgvolume" display="icon"/>
+                                                    </div>
+                                                </div>  </td>   
+                                            </tr>
+                                       </table>
+                                        <h:inputHidden id="Trader"  value="#{stockDetailBean.traderId}"/>
+                                        <div class="form-actions" >
+                                              
+                                <h:commandButton value="Buy" disabled="#{stockDetailBean.rend or facesContext.validationFailed}" id="btnBuy" class="btn btn-success" action="#{stockDetailBean.addOrder()}">
+                                    <f:setPropertyActionListener target="#{stockDetailBean.orderType}" value="B" />
+                                </h:commandButton>
+                               
+                           
+                                           
+
+
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </section>
+
+            </ui:define>
+
+
+        </ui:composition>
+
+    </body>
+</html>

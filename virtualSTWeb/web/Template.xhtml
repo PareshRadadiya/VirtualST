@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="icon" href="../theme_assets/assets/images/vault.ico" type="image/x-icon" />
+
+        <!-- Bootstrap Stylesheet -->
+        <link rel="stylesheet" href="../theme_assets/bootstrap/css/bootstrap.min.css" media="screen" />
+        <link  rel="shortcut ico" href="logo_earth.png" />
+        <!-- jquery-ui Stylesheets -->
+        <link rel="stylesheet" href="../theme_assets/assets/jui/css/jquery.ui.all.css" media="screen" />
+        <link rel="stylesheet" href="../theme_assets/assets/jui/jquery-ui.custom.css" media="screen"/>
+        <link rel="stylesheet" href="../theme_assets/assets/jui/timepicker/jquery-ui-timepicker.css" media="screen"/>
+
+        <!-- Uniform Stylesheet -->
+        <link rel="stylesheet" href="../theme_assets/plugins/uniform/css/uniform.default.css"/>
+
+        <!-- Plugin Stylsheets first to ease overrides -->
+        <!-- msgBox -->
+        <link rel="stylesheet" href="../theme_assets/plugins/msgbox/jquery.msgbox.css" media="screen"/>
+
+        <!-- pnotify -->
+        <link rel="stylesheet" href="../theme_assets/plugins/pnotify/jquery.pnotify.css" media="screen"/>
+        <!-- iButton -->
+        <link rel="stylesheet" href="../theme_assets/plugins/ibutton/jquery.ibutton.css" media="screen"/>
+
+        <!-- Circular Stat -->
+        <link rel="stylesheet" href="../theme_assets/custom-plugins/circular-stat/circular-stat.css"/>
+
+
+        <!-- Fullcalendar -->
+        <link rel="stylesheet" href="../theme_assets/plugins/fullcalendar/fullcalendar.css" media="screen"/>
+        <link rel="stylesheet" href="../theme_assets/plugins/fullcalendar/fullcalendar.print.css" media="print"/>
+
+        <!-- Select2 -->
+        <link rel="stylesheet" href="../theme_assets/plugins/select2/select2.css" media="screen"/>
+
+        <!-- End Plugin Stylesheets -->
+
+        <!-- Main Layout Stylesheet -->
+        <link rel="stylesheet" href="../theme_assets/assets/css/fonts/icomoon/style.css" media="screen"/>
+        <link rel="stylesheet" href="../theme_assets/assets/css/mooncake.min.c.css" media="screen"/>
+        <link rel="stylesheet" href="../theme_assets/assets/css/plugins/plugins.min.css" media="screen"/>
+
+        <!-- Wizard Stylesheet -->
+        <link rel="stylesheet" href="../theme_assets/custom-plugins/wizard/wizard.css"/>
+
+
+
+
+        <title>Virtual Stock Trading</title>
+    </h:head>
+
+    <h:body>
+        <div id="customizer">
+            <div id="showButton"><i class="icon-cogs"></i></div>
+            <div id="layoutMode">
+                <label class="checkbox"><input type="checkbox" class="uniform" name="layout-mode" value="boxed"/> Boxed</label>
+            </div>
+        </div>
+        <div id="wrapper">            
+            <div id="top">
+                <ui:insert name="top">
+
+                    <!-- START Worden Top Gainers and Losers Ticker Widget -->
+                    <script src="http://widgets.freestockcharts.com/js/jquery-1.3.1.min.js" type="text/javascript"></script> <script src="http://widgets.freestockcharts.com/script/WBIHorizontalTicker2.js?ver=12334" type="text/javascript"></script> <link href="http://widgets.freestockcharts.com/WidgetServer/WBITickerblue.css" rel="stylesheet" type="text/css" />
+                    <script>
+                        var gainerTick = new WBIHorizontalTicker('gainers');
+                        gainerTick.start();
+                        var loserTick = new WBIHorizontalTicker('losers');
+                        loserTick.start();
+                    </script> 
+                    <!-- End Scrolling Ticker Widget -->
+
+
+                    <header id="header" class="navbar navbar-inverse">
+
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <div class="brand-wrap pull-left">
+                                    <div class="brand-img">
+                                        <a class="brand" href="#">
+                                            <img src="../theme_assets/assets/images/logo.png" alt=""/>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div id="header-right" class="clearfix">
+
+                                    <div id="nav-toggle" data-toggle="collapse" data-target="#navigation" class="collapsed">
+                                        <i class="icon-caret-down"></i>
+                                    </div>
+
+                                    <div id="header-search">
+                                        <span id="search-toggle" data-toggle="dropdown">
+                                            <i class="icon-search"></i>
+                                        </span>
+                                        <h:form class="navbar-search">
+                                            <p:autoComplete  value="#{stockDetailBean.stock_Symbol_Search}" completeMethod="#{stockDetailBean.complete}"/>
+                                            &nbsp;&nbsp;
+                                            <h:commandButton value="Search" class="btn btn-info" action="#{stockDetailBean.StockSearch}"/>
+                                        </h:form>
+                                    </div>
+                                    <div id="dropdown-lists">
+
+                                    </div>
+
+                                    <div id="header-functions" class="pull-right">
+
+                                        <div id="user-info" class="clearfix">
+                                            <span class="info">
+                                                Welcome
+                                                <span class="name"><h:outputText value="#{sessionScope['username']}"/></span>
+                                            </span>
+                                            <div class="avatar">
+                                                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                                    <img src="../theme_assets/assets/images/pp.jpg" alt="Avatar"/>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li><a href="profile.html"><i class="icol-user"></i> My Profile</a></li>
+                                                    <li><a href="#"><i class="icol-layout"></i> My Invoices</a></li>                                        
+                                                    <li class="divider"></li>
+                                                    <li><a href="index.html"><i class="icol-key"></i> Logout</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="logout-ribbon">.
+                                            <h:form><h:commandLink action="#{authBackingBean.logout()}"><i class="icon-off"></i></h:commandLink> </h:form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                </ui:insert>
+            </div>
+
+
+
+            <div id="content-wrap">
+
+                <div id="content">
+
+                    <div id="content-outer">
+                        <div id="content-inner">
+
+                            <div id="left">
+                                <ui:insert name="left">
+
+
+                                    <aside id="sidebar">
+                                        <nav id="navigation" class="collapse">
+                                            <ul>
+                                                <li>
+                                                    <span title="General">
+                                                        <i class="icon-home"></i>
+                                                        <span class="nav-title">Configuration</span>
+                                                    </span>
+                                                    <ul class="inner-nav">      
+                                                        <li><h:outputLink  value="Home.xhtml"><i class="icol-application-home"></i>Dashboard</h:outputLink></li>
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Admin'}">
+                                                            <li><h:outputLink  value="Broker.xhtml"><i class="icol-user-business-boss"></i>Broker</h:outputLink></li>
+                                                            <li><h:outputLink value="Stock.xhtml"><i class="icol-briefcase"></i> Stock</h:outputLink></li>
+                                                            <li><h:outputLink  value="news.xhtml"><i class="icol-newspaper"></i> News</h:outputLink></li>
+                                                            <li><h:outputLink  value="AdminUser.xhtml"><i class="icol-user"></i> Admin</h:outputLink></li>
+                                                        </ui:fragment>
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Broker'}">
+                                                            <li><h:outputLink value="Trader.xhtml"><i class="icol-user-business-boss"></i> Trader</h:outputLink></li>
+                                                            <li><h:outputLink value="BuyStock.xhtml"><i class="icol-cart"></i> Buy</h:outputLink></li>
+                                                            <li><h:outputLink value="SellStock.xhtml"><i class="icol-money-dollar"></i> Sell</h:outputLink></li>
+                                                        </ui:fragment>
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Trader'}">
+                                                            <li><h:outputLink value="SellStock.xhtml"><i class="icol-money-dollar"></i>Sell</h:outputLink></li>
+                                                            <li><h:outputLink value="BuyStock.xhtml"><i class="icol-cart"></i>Buy</h:outputLink></li>
+                                                        </ui:fragment>                                                            
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span title="General">
+                                                        <i class="icon-user"></i>
+                                                        <span class="nav-title">Profile</span>
+                                                    </span>
+                                                    <ul class="inner-nav">     
+
+
+                                                        <ul class="inner-nav">      
+                                                            <ui:fragment rendered="#{sessionScope['usertype']=='Admin'}">
+                                                                <li><h:outputLink  value="ChangePassword.xhtml"><i class="icol-application-key"></i>Change Password</h:outputLink></li>
+                                                   
+                                                            </ui:fragment>
+                                                            <ui:fragment rendered="#{sessionScope['usertype']=='Broker'}">
+                                                                <li><h:outputLink  value="ChangePassword.xhtml"><i class="icol-application-key"></i>Change Password</h:outputLink></li>
+                                                                <li><h:outputLink  value="Broker_Profile.xhtml"><i class="icol-user"></i>Broker Profile</h:outputLink></li>
+                                                                <li><h:outputLink  value="showTraderList.xhtml"><i class="icol-zone-money"></i>Trader Request</h:outputLink></li>
+                                                            </ui:fragment>
+                                                            <ui:fragment rendered="#{sessionScope['usertype']=='Trader'}">
+                                                                <li><h:outputLink  value="ChangePassword.xhtml"><i class="icol-application-key"></i>Change Password</h:outputLink></li>
+                                                                <li><h:outputLink  value="TraderProfile.xhtml"><i class="icol-user"></i>Trader Profile</h:outputLink></li>
+                                                            </ui:fragment>                                                            
+                                                        </ul>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span title="General">
+                                                        <i class="icon-atom"></i>
+                                                        <span class="nav-title">Reports</span>
+                                                    </span>
+                                                    <ul class="inner-nav">                                                          
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Admin'}">
+                                                            <li><h:outputLink  value="fund_Add.xhtml"><i class="icol-coins"></i>Transfer Fund</h:outputLink></li>
+                                                            <li><h:outputLink  value="Order.xhtml"><i class="icol-book-addresses"></i>Order Report</h:outputLink></li>
+                                                            <li><h:outputLink  value="Transaction.xhtml"><i class="icol-bookmark-book"></i>Transaction Report</h:outputLink></li>
+
+                                                        </ui:fragment>
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Broker'}">
+
+                                                            <li><h:outputLink  value="fund_Add.xhtml"><i class="icol-coins"></i>Transfer Fund</h:outputLink></li>
+                                                            <li><h:outputLink  value="Order.xhtml"><i class="icol-book-addresses"></i>Order Report</h:outputLink></li>
+                                                            <li><h:outputLink  value="Transaction.xhtml"><i class="icol-bookmark-book"></i>Transaction Report</h:outputLink></li>
+                                                            <li><h:outputLink  value="Charts.xhtml"><i class="icol-chart-bar"></i>Chart View</h:outputLink></li>
+                                                        </ui:fragment>
+                                                        <ui:fragment rendered="#{sessionScope['usertype']=='Trader'}">
+                                                            <li><h:outputLink  value="Order.xhtml"><i class="icol-book-addresses"></i>Order Report</h:outputLink></li>
+                                                            <li><h:outputLink  value="Transaction.xhtml"><i class="icol-bookmark-book"></i>Transaction Report</h:outputLink></li>
+                                                            <li><h:outputLink  value="Charts.xhtml"><i class="icol-chart-bar"></i>Chart View</h:outputLink></li>
+                                                        </ui:fragment>                                                           
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <span title="General">
+                                                        <i class="icon-coffee"></i>
+                                                        <span class="nav-title">Profile</span>
+                                                    </span>
+                                                    <ul class="inner-nav">   
+                                                        <li><h:outputLink  value="StockDetailSearch.xhtml"><i class="icol-transmit"></i>Today's Stock</h:outputLink></li>
+                                                        <li><h:outputLink  value="Market_Watch.xhtml"><i class="icol-timeline-marker"></i>Market Watch</h:outputLink></li>
+                                                        <li><h:outputLink  value="Market_News.xhtml"><i class="icol-television"></i>Market News</h:outputLink></li>
+                                                        <li><h:outputLink  value="Market_Forex.xhtml"><i class="icol-zone-money"></i>Forex View</h:outputLink></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </aside>
+
+                                    <div id="sidebar-separator"></div>
+
+
+
+
+                                </ui:insert>
+
+                            </div>
+
+                            <ui:insert name="content">
+
+                            </ui:insert>
+
+
+                        </div>
+                    </div>
+                    <div><script src="http://widgets.macroaxis.com/widgets/url.jsp?t=42"></script>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+            <div id="bottom">
+                <ui:insert name="bottom">
+
+                    <footer id="footer">
+                        <iframe  width="1250" height="72" frameborder="0" scrolling="no" allowtransparency="true" src="http://www.tools.fxempire.com/quotes-ticker.php?instruments=1,3,2,6,5,7,8,4,10,14,23,19,20,21,22,17,13,15,16,24,18,12,11,35,88,87,89,94,95,93,92,96,113,107,115,97,112,108,111,106,116,110,109,114,102,99,100&amp;width=1250&amp;text_color=333"></iframe>   
+                        <div class="footer-left">Virtual Stock Trading</div>
+                        <div class="footer-right"><p>Copyright 2012.Online Stock Trading Service.</p></div>
+
+                    </footer>
+                </ui:insert>
+            </div>
+        </div>
+
+        <!-- Core Scripts -->
+        <script src="../theme_assets/assets/js/libs/jquery-1.8.2.min.js"></script>
+        <script src="../theme_assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../theme_assets/assets/js/libs/jquery.placeholder.min.js"></script>
+        <script src="../theme_assets/assets/js/libs/jquery.mousewheel.min.js"></script>
+
+        <!-- Template Script -->
+        <script src="../theme_assets/assets/js/template.js"></script>
+        <script src="../theme_assets/assets/js/setup.js"></script>
+
+        <!-- Customizer, remove if not needed -->
+        <script src="../theme_assets/assets/js/customizer.js"></script>
+
+        <!-- Uniform Script -->
+        <script src="../theme_assets/plugins/uniform/jquery.uniform.min.js"></script>
+
+        <!-- jquery-ui Scripts -->
+        <script src="../theme_assets/assets/jui/js/jquery-ui-1.8.24.min.js"></script>
+        <script src="../theme_assets/assets/jui/jquery-ui.custom.min.js"></script>
+        <script src="../theme_assets/assets/jui/timepicker/jquery-ui-timepicker.min.js"></script>
+        <script src="../theme_assets/assets/jui/jquery.ui.touch-punch.min.js"></script>
+
+
+
+        <!-- Plugin Scripts -->
+
+
+
+        <script src="../theme_assets/plugins/flot/jquery.flot.min.js"></script>
+        <script src="../theme_assets/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+        <script src="../theme_assets/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+        <script src="../theme_assets/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+
+        <!-- msgBox -->
+        <script src="../theme_assets/plugins/msgbox/jquery.msgbox.min.js"></script>
+
+        <!-- pnotify -->
+        <script src="../theme_assets/plugins/pnotify/jquery.pnotify.min.js"></script>
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/alerts.js"></script>
+
+
+
+        <!-- jquery-ui Spinner -->
+        <script src="../theme_assets/assets/jui/spinner/jquery.ui.spinner.min.js"></script>
+
+        <!-- Circular Stat -->
+        <script src="../theme_assets/custom-plugins/circular-stat/circular-stat.min.js"></script>
+
+        <!-- SparkLine -->
+        <script src="../theme_assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+        <!-- iButton -->
+        <script src="../theme_assets/plugins/ibutton/jquery.ibutton.min.js"></script>
+
+
+
+        <!-- Select2 -->
+        <script src="../theme_assets/plugins/select2/select2.min.js"></script>
+
+
+
+
+        <!-- Wizard -->
+        <script src="../theme_assets/custom-plugins/wizard/wizard.min.js"></script>
+        <script src="../theme_assets/custom-plugins/wizard/jquery.form.min.js"></script>
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/form_wizard.js"></script>
+
+        <!-- DataTables -->
+        <script src="../theme_assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../theme_assets/plugins/datatables/TableTools/js/TableTools.min.js"></script>
+        <script src="../theme_assets/plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="../theme_assets/plugins/datatables/jquery.dataTables.columnFilter.js"></script>
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/dataTables.js"></script>
+
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/mail.js"></script>
+
+        <!-- Bootstrap FileInput -->
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/dashboard.js"></script>
+        <script src="../theme_assets/custom-plugins/bootstrap-fileinput.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="../theme_assets/plugins/select2/select2.min.js"></script>
+
+
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/form.js"></script>
+        <!-- Validation -->
+        <link rel="stylesheet" href="../theme_assets/formValidator/css/validationEngine.jquery.css" type="text/css"/>
+
+
+        <script src="../theme_assets/formValidator/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"/>
+
+        <script src="../theme_assets/formValidator/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"/>
+
+        <script>
+            jQuery(document).ready(function(){
+                // binds form submission and fields to the validation engine
+                jQuery("#formID").validationEngine();
+            });
+
+
+
+        </script>
+        <!-- Demo Scripts -->
+        <script src="../theme_assets/assets/js/demo/ui_comps.js" type="text/javascript"/>
+
+    </h:body>
+
+
+
+</html>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+            <ui:define name="content">
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>MoonCake
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#">Table</a>
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#"> Admin</a>
+                            </li>
+
+                        </ul>
+
+                        <h1 id="main-heading">
+                            Admin  <span>This page shows Admin </span>
+                        </h1>
+                    </div>
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>  Admin</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+
+                                        <table width="100%">
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input11"> Admin Name <span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:inputText value="#{adminBean.userId}" class="validate[required] text-input span11" id="adminName" required="true"  />    
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input12">Email Id <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText  value="#{adminBean.emailId}" class="validate[required,custom[email]] text-input span11" id="emailid" required="true"/>
+                                                </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input12">Phone No <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText  value="#{adminBean.phoneNo}" class="validate[required,custom[integer]] span11" id="phoneNo" required="true"/>
+                                                </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input11"> Admin Details<span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:inputText value="#{adminBean.details}" class="validate[required] text-input span11" id="details" required="true"  />    
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            
+                                        </table>
+                                                                               
+                                        <div class="form-actions" >
+                                            
+                                                
+                                            <h:commandButton value="Add"   action="#{adminBean.addAdmin()}" class="btn btn-primary">
+                                                   
+                                                 </h:commandButton>
+                                                 &nbsp;
+                                            
+                                                 
+                                                      
+                                                 
+                                            &nbsp;
+                                             <h:outputLink value="AdminUser.xhtml" class="btn btn-inverse">Cancel</h:outputLink>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </section>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

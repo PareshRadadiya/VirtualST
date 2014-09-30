@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+           
+
+            <ui:define name="content">
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>MoonCake
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#">Table</a>
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#"> Brokers</a>
+                            </li>
+
+                        </ul>
+
+                        <h1 id="main-heading">
+                          Fund Transfer
+                        </h1>
+                    </div>
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <ui:fragment rendered="#{not empty brokerBean.operation}">
+                               <div class="alert alert-success fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Success:</strong><br/>
+                                   Fund is Transfered Successfully....
+                               </div>
+                              </ui:fragment> 
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>Fund Transfer</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+                                       
+                                        <table width="100%">
+                                            
+                                            
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                <label class="control-label">Broker <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:selectOneMenu required="true" value="#{brokerBean.brokerId}" id="Broker" class="select2-select-00 span11">
+                                                        <f:selectItems var="data" value="#{brokerBean.objData}"  itemValue="#{data.brokerId}"  itemLabel="#{data.brokerName}" />
+                                                </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td>
+                                                    <div class="control-group">
+                                                <label class="control-label">Fund <span class="required">*</span></label>
+                                                <div class="controls">
+
+                                                    <h:inputText value="#{brokerBean.fund}"  class="validate[required,custom[integer]] span11" id="SEBI" required="true" />
+                                                </div>
+                                            </div>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                        
+                                       
+                                        <div class="form-actions">
+                                                 
+                                            <h:commandButton  value="Transfer Fund"   action="#{brokerBean.addBrokerFund()}" class="btn btn-primary">
+                                                   
+                                                 </h:commandButton>  &nbsp;&nbsp;&nbsp; 
+                                                 
+                                                 
+                                            
+                                             <h:outputLink value="Broker.xhtml" class="btn">Cancel</h:outputLink>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </section>
+            </ui:define>
+
+           
+
+        </ui:composition>
+
+    </body>
+</html>

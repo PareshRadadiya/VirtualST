@@ -1,0 +1,28 @@
+/* 
+
+Unioncorp - CSS File
+
+CHANGE COLOR STYLE
+
+*/
+
+
+body{
+	color:#6e6e6e; /* general text */
+	background:#f9f9f9; /* background body */
+}
+
+/* color link & color text */
+a, a:visited, .colortext {color:#f0b028;} 
+
+/* top menu */
+.sf-menu a {color:#303030;}
+.sf-menu a:hover{color:#f0b028;}
+.sfHover a, .sfHover a.sf-with-ul {color:#f0b028;}
+.sf-menu li a.current{color:#f0b028;}
+
+/* heading color */
+h1, h2, h3, h4, h5, h6{color:#393939;}
+
+/* dropcap color */
+.dropcap2, .dropcap3{background-color:#f0b028;}

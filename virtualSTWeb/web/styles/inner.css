@@ -1,0 +1,170 @@
+/* 
+
+Unioncorp - CSS File
+
+USE THIS STYLE SHEET FOR INNER PAGE
+
+*/
+
+
+
+/* Page Navi*/
+.pagenavi {padding:0; font-size:11px; margin:0 0 0 0; background:url(../images/bg_button2.gif) repeat-x; border:solid 1px #e6e6e6; border-width:1px 0 1px 1px; height:27px; float:left }
+.pagenavi a, .pagenavi a:visited{
+	padding:0 10px;
+	line-height:27px;
+	height:27px;
+	margin-right:0px;
+	color:#7a7d80;
+	border-right:solid 1px #e6e6e6;
+	float:left
+}
+
+.pagenavi a:hover{
+	margin-right:0px;
+	text-decoration:none;
+	background:url(../images/bg_button2.gif) repeat-x 0 -27px;
+}
+
+.pagenavi .current{
+	padding:0 10px;
+	line-height:27px;
+	height:27px;
+	margin-right:0px;
+	text-decoration:none;
+	cursor:pointer;
+	border-right:solid 1px #e6e6e6;
+	float:left;
+	background:url(../images/bg_button2.gif) repeat-x 0 -27px;
+}
+
+.pagenavi .pages{
+	padding:0 10px;
+	line-height:27px;
+	height:27px;
+	margin-right:0px;
+	border-right:solid 1px #e6e6e6;
+	float:left
+
+}
+
+/* PORTFOLIO */
+/*======= Portfolio 3 Column =======*/
+#ts-display-pf-col-3{list-style-type:none; padding:0; margin:0; }
+#ts-display-pf-col-3 li{list-style-type:none; padding:0; margin:0 50px 60px 0; width:280px;  float:left;}
+#ts-display-pf-col-3 li.nomargin{margin-right:0;}
+#ts-display-pf-col-3 h2, #ts-display-pf-col-3 h2 a{margin-bottom:3px; font-size:20px; color:#393939}
+#ts-display-pf-col-3 h2 a:hover{text-decoration:none;}
+
+#ts-display-pf-col-3 h2{background:url(../images/double_line.gif) repeat-x bottom; padding:0 0 20px 0}
+#ts-display-pf-col-3 .pftag{padding:5px 0 15px 0;}
+
+
+#ts-display-pf-col-3 .ts-display-pf-img img{border:solid 1px #fff;}
+
+#ts-display-pf-col-3 .ts-display-pf-img a.image{
+	width:280px;
+	height:145px;
+	display:block;
+	position:relative;
+	float:left;
+}
+
+#ts-display-pf-col-3 .ts-display-pf-img a .rollover{
+	background:url(../images/hover-opacity.png);
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-position:center;
+	width:280px;
+	height:145px;
+	display:block;
+    position:absolute;
+	z-index:10;
+	display:none;
+	cursor:pointer;
+
+}
+
+#ts-display-pf-col-3 .ts-display-pf-text{
+	padding-top:13px;
+	clear:left;
+}
+#ts-display-pf-col-3 .ts-display-pf-text p{}
+
+
+/* BLOG */
+.post{margin-bottom:50px; padding-bottom:50px; clear:both; background:url(../images/double_line.gif) repeat-x left bottom;}
+.post.last{background:transparent; margin-bottom:30px; padding-bottom:30px;}
+.posttitle, .posttitle a{font-size:20px; line-height:22px; margin-bottom:10px; color:#393939}
+.posttitle a:hover{text-decoration:none;}
+.entry-utility{ margin-bottom:12px; color:#999}
+.postimg{margin-bottom:10px;}
+.entry-utility .tags{float:right;}
+.entry-content{padding:10px 0 0 0;}
+
+#singlepost.post{margin-bottom:30px; padding-bottom:30px;}
+
+.commentlist{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+.commentlist ol{
+	list-style-type:none;
+	padding:30px 0 0 90px;
+	margin:0;
+}
+
+.commentlist li{
+	position:relative;
+	padding:0 0 30px 0;
+}
+.commentlist li li{
+	position:relative;
+	padding:0;
+}
+
+.avatar{
+	position:absolute;
+	top:0;
+	left:0;
+}
+.tuser{font-size:14px; color:#303030;}
+.tdate{ font-size:10px; font-style:italic;}
+.comment-body{margin:0 0 0 90px; padding:0;}
+.comment-body p{ margin-bottom:5px;}
+.comment-body .more{ padding:0px 0px;}
+#commentform label{display:block}
+#commentform .text-input{
+	margin-bottom:8px;
+	padding:8px 5px;
+	vertical-align:middle;
+}
+#commentform .textarea{
+	margin-bottom:20px;
+	padding:8px 5px;
+	vertical-align:top;
+}
+
+/* CONTACT */
+form{margin:0; padding:0;}
+fieldset{border:0px;}
+#contactform{position:relative; }
+
+#contactform label{ display:block}
+span.error{color:red;text-align:left; font-size:9px; float:left;}
+#contactform .text-input{
+	margin-bottom:20px;
+	padding:8px 5px;
+	font-size:11px;
+	width:320px
+}
+#contactform textarea{
+	margin-bottom:7px;
+	padding:8px 5px;
+	font-size:11px;
+}
+#message{ margin-left:0px;}
+#message h2{}
+#message p{margin:6px 0px; }
+#contactform .button{ cursor:pointer; margin:15px 0 0 0;}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<!-- Mirrored from www.malijuthemeshop.com/live_previews/mooncake/creative/404.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 24 Oct 2012 10:41:49 GMT -->
+<h:head>
+
+
+<!-- Bootstrap Stylesheet -->
+<link rel="stylesheet" href="theme_assets/bootstrap/css/bootstrap.min.css" media="screen"/>
+
+<!-- Main Layout Stylesheet -->
+<link rel="stylesheet" href="theme_assets/assets/css/error.min.c.css" media="screen"/>
+
+<title>virtual Stock Trading</title>
+
+</h:head>
+
+<h:body>
+
+    <div id="error-wrap">
+
+        <div id="error-digits">
+            <span class="animated">4</span>
+            <span class="animated delay300">0</span>
+            <span class="animated delay600">3</span>
+        </div>
+        <div id="error-digits">         
+            <span class="animated delay600"><h1>We seem to have wrong login info.</h1></span>
+          
+        </div>
+       
+       
+   <p>Access to the requested resource has been denied <a href="login.xhtml">go back home</a>.</p>
+        
+
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="theme_assets/assets/js/libs/jquery-1.8.2.min.js"></script>
+    <script src="theme_assets/assets/js/libs/jquery.placeholder.min.js"></script>
+ 
+    <script>
+        /* <![CDATA[ */
+        function support() {
+            var vendorPrefixes = "O Ms Webkit Moz".split( ' ' ),    
+                i = vendorPrefixes.length, support = true, 
+                divStyle = document.createElement('div').style;
+
+            while(i--) {
+                for(var a = 0 ,support = true; a < arguments.length; a++) {
+                    support = (vendorPrefixes[ i ] + arguments[ a ] in divStyle);
+                }
+
+                if( support ) return true;
+            }
+
+            return false;
+        }
+
+        $(document).ready(function() {
+            support( 'Animation' ) && $('#error-digits > span').each( function(i, span) {
+                $(span).addClass('bounceInDown');
+            });
+        });
+  //Code containing "<" also comes in this section
+
+/* ]]> */
+    </script>
+
+<script type="text/javascript" src="../../ga.js"></script>
+</h:body>
+
+
+<!-- Mirrored from www.malijuthemeshop.com/live_previews/mooncake/creative/404.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 24 Oct 2012 10:41:50 GMT -->
+</html>

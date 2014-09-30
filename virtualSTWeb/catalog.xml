@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/stSerice/stSerice?wsdl" uri="src/conf/xml-resources/web-service-references/stSerice/wsdl/localhost_8080/stSerice/stSerice.wsdl"/>
+    <system systemId="http://localhost:8080/stSerice/stSerice?xsd=1" uri="src/conf/xml-resources/web-service-references/stSerice/wsdl/localhost_8080/stSerice/stSerice.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/stService/stService?wsdl" uri="src/conf/xml-resources/web-service-references/stService/wsdl/localhost_8080/stService/stService.wsdl"/>
+    <system systemId="http://localhost:8080/stService/stService?xsd=1" uri="src/conf/xml-resources/web-service-references/stService/wsdl/localhost_8080/stService/stService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/stService/stService?xsd=2" uri="src/conf/xml-resources/web-service-references/stService/wsdl/localhost_8080/stService/stService.xsd_2.xsd"/>
+</catalog>

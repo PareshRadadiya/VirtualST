@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+
+
+            <ui:define name="content">
+                <h:form>
+                    <section id="main" class="clearfix">
+                        <div id="main-header" class="page-header">
+
+
+
+                        </div>
+
+                        <div id="main-content">
+                            <ui:fragment rendered="#{not empty brokerBean.operation}">
+                                <div class="alert alert-success fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Success:</strong><br/>
+                                    Record is #{brokerBean.operation}  Successfully....
+                                </div>
+                            </ui:fragment> 
+                            <div class="row-fluid">
+
+                                <div class="span6 widget">
+                                    <div class="widget-header">
+                                        <span class="title">Broker Profile</span>
+                                    </div>
+                                    <ui:repeat id="tbl" value="#{brokerBean.objData1}" var="data">
+                                        <div class="widget-content summary-list">
+                                            <ul>
+                                                <li>
+                                                    <span class="key"><i class="icon-calendar"></i> Broker Name</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:commandLink  value="#{data.brokerName}" action="#{brokerBean.renderForm1(data.brokerId)}"/></span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="key"><i class="icon-users"></i> correspond_office</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.correspondOffice}"/></span>
+                                                    </span>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span class="key"><i class="icos-money"></i> Territory</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.city}"/>,<h:outputText value="#{data.stat}"/></span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="key"><i class="icon-home"></i> Trade Name</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.tradeName}"/></span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="key"><i class="icos-mail"></i> Corporate Email</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.corporateEmail}"/></span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="key"><i class="icos-address-book"></i> Contact No</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.phoneNo}"/></span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="key"><i class="icos-address-book"></i> Sebi No</span>
+                                                    <span class="val">
+                                                        <span class="text-nowrap"><h:outputText value="#{data.sebiNo}"/></span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ui:repeat>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+                </h:form>
+            </ui:define>
+
+
+        </ui:composition>
+
+    </body>
+</html>

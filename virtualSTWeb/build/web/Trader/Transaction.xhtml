@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<body>
+    <h:panelGroup id="tbl" >
+    <ui:composition  template="./../Template.xhtml">
+            <ui:define name="content">
+               
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                       
+
+                        <h1 id="main-heading">
+                            <u>Transaction Report</u>
+                        </h1>
+                    </div>
+
+                    <div id="main-content">
+                         <h:form>
+                                                          <div class="row-fluid">
+                                    <div class="span12 widget">
+                                        <div class="widget-header light_rounded">
+                                            <span class="title">Custom report generation</span>
+                                        </div>
+                                        <div class="widget-content">
+                                          <div class="control-group">
+                                            <label class="control-label">By Transaction Type: </label>
+                                            <div class="controls">
+                                                <h:selectOneMenu  value="#{transactionBean.orderType}" class="select2-select-00 span5" id="OrderType" >
+                                                      <f:selectItem itemValue="" itemLabel="Select Type"/> 
+                                                    <f:selectItem itemValue="B" itemLabel="Buy"/>
+                                                      <f:selectItem itemValue="S" itemLabel="Sell"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                                            <label class="control-label">By Script Id :</label>
+                                            <div class="controls">
+                                                <h:inputText   value="#{transactionBean.scriptId}" class="text-input span5" /> 
+                                            </div>
+                        </div>
+                        <div class="control-group">
+                                            <label class="control-label">From Date</label>
+                                            <div class="controls">
+                                                <p:calendar value="#{transactionBean.from}" styleClass="span12 datepicker-cmy" />  
+                                            </div>
+                        </div>
+                         <div class="control-group">
+                                            <label class="control-label">To Date</label>
+                                            <div class="controls">
+                                                <p:calendar value="#{transactionBean.to}" styleClass="span12 datepicker-cmy"/>  
+                                            </div>
+                        </div>
+                                            <h:commandButton value="Search"  class="btn btn-info" action="#{transactionBean.Search}">
+                                                 <f:setPropertyActionListener target="#{transactionBean.traderId}" value="#{sessionScope.user}"/>
+                                            </h:commandButton>
+                                        </div>
+                                    
+								</div>
+                        </div>
+
+                               <h:outputLink target="newPopup" value="Transaction_Export.xhtml" class="btn btn-success">Export Data</h:outputLink> 
+                               <br/><hr/>
+                          <div class="row-fluid">
+                            <div class="span12 widget">
+                                <div class="widget-header">
+                                    <span class="title">Transaction Details</span>
+                                </div>
+                                <div class="widget-content table-container">
+                                    <h:panelGroup id="tbl">
+                                    <table id="demo-dtable-02" class="table table-striped  table-checkable">
+                                        <thead>
+                                            <tr>
+                                                <th>Trader</th>
+                                                <th>Script Id</th>
+                                                <th>Date</th>
+                                                <th>Price</th>
+                                                <th>Volume</th>
+                                                <th>Type</th>
+                                                <th>Brokerage</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ui:repeat  value="#{transactionBean.objTraderTrans}" var="data">
+                                               <h:panelGroup rendered="#{ data.orderId.traderId.traderId eq sessionScope.user }">
+                                            <tr>
+                                                <td><h:outputText value="#{data.orderId.traderId.traderName}"  /></td>
+                                                <td><h:outputText value="#{data.orderId.scriptId.scriptId}"  /></td>
+                                                <td><h:outputText value="#{data.transDate.toGregorianCalendar().time}"><f:convertDateTime pattern="dd-mm-yyyy" />    </h:outputText>
+                                                </td> 
+                                                <td><h:outputText value="#{data.orderId.price}"  /></td> 
+                                                <td><h:outputText value="#{data.orderId.volume}"  /></td> 
+                                                <td><h:outputText value="#{data.orderId.orderType eq 'B'?'Buy':'Sell'}"  /></td> 
+                                                <td><h:outputText value="#{data.brokrage}"  /></td>                                       
+                                            </tr>
+                                               </h:panelGroup>    
+                                            </ui:repeat>
+                                          
+                                        </tbody>
+                                        
+                                    </table>
+                                     </h:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                          </h:form>
+                    </div>        
+                </section>  
+                  
+            </ui:define>
+
+        </ui:composition>
+</h:panelGroup>
+    </body>
+</html>

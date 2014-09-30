@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+
+                        
+
+                        <h1 id="main-heading">
+                         Charts
+                        </h1>
+                    </div>
+
+                    <div id="main-content">
+                        <h:form>
+                        <div class="control-group">
+                                            <label class="control-label">Please Select Trader Name: </label>
+                                            <div class="controls">
+                                                
+                                                
+                                                    <h:selectOneMenu  required="true"  value="#{sellBean.traderId}" class="select2-select-00 span5" id="Trader" >
+                                                     <f:selectItem itemValue="" itemLabel="Trader"/>
+                                                     <f:selectItems var="data" value="#{traderBean.objData}"  itemValue="#{data.traderId}"  itemLabel="#{data.traderName}" />
+                                                     <p:ajax  event="change" process="@form" update=":tbl"  listener="#{sellBean.handleTraderChange()}" />
+                                                </h:selectOneMenu>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                         <div class="control-group">
+                            <label class="control-label">Please Select Chart Type:</label>
+                            <div class="controls">
+
+                               
+                                    <h:selectOneMenu  required="true"  value="#{sellBean.orderType}"  id="type" >
+                                        <f:selectItem itemValue="" itemLabel="Trader"/>
+                                        <f:selectItem itemValue="Available Stock" itemLabel="Available Stock"/>
+                                        <f:selectItem itemValue="This Year Transaction" itemLabel="This Year Transaction"/>
+                                      
+                                        <p:ajax  event="change" process="@form" update=":tbl"  listener="#{sellBean.handleTraderChange()}" />
+                                    </h:selectOneMenu>
+                                
+
+                            </div>
+                        </div>
+                        </h:form>
+
+                        <div class="row-fluid">
+                            
+                            <div class="span12 widget">
+                                <h:panelGroup id="tbl">                               
+                                 <ui:fragment rendered="#{sellBean.orderType eq 'Available Stock'}">
+                                <SCRIPT LANGUAGE="Javascript" SRC="../theme_assets/FusionCharts/FusionCharts.js">
+                                    </SCRIPT>
+
+                                    <script>
+                                        var sty='<styles><definition><style name='myFont' type='font' isHTML='1' bold='1' size='11' color='FFFFFF' /><style name='myShadow' type='shadow' color='333333' angle='45' strength='3'/></definition><application><apply toObject='YAxisValues' styles='myFont,myShadow' /><apply toObject='DataLabels' styles='myFont,myShadow' /><apply toObject='DataValues' styles='myFont,myShadow' /><apply toObject='Caption' styles='myFont,myShadow' /></application></styles>';
+                                    </script>
+                                    <div class="col1-2">
+
+                                        <div class="text" id="PurChart">
+                                        </div>
+                                        <div class="text" id="PurChart1">
+                                        </div>
+                                        <script language="JavaScript">					
+                                            var chart1 = new FusionCharts("../theme_assets/FusionCharts/Charts/Pie2D.swf", "chart1Id", "900", "400", "0", "0");		   			
+                                            var xml="";
+                                                <ui:repeat value="#{sellBean.objTraderStock}"  var="data">
+           
+                                                xml+='<set label='#{data.stockDetails.scriptId}' value='#{data.volume}' />';
+                                                </ui:repeat>
+                                                chart1.setDataXML('<chart bgAlpha='0,0' caption='Available Stocks'  baseFontSize='12'>'+xml+sty+'</chart>');
+                                            chart1.setTransparent(true);
+                                            chart1.render("PurChart");
+                                            var myChart = new FusionCharts("../theme_assets/FusionCharts/Charts/SSGrid.swf", "myGrid1", "900", "100", "0", "0");
+                                            myChart.addVariable('showPercentValues', '1');
+                                            myChart.setDataXML("<chart >"+xml+"</chart>");
+                                            myChart.render("PurChart1");
+                                        </script>
+
+                                    </div>
+                                 </ui:fragment>
+                                    <ui:fragment rendered="#{sellBean.orderType eq 'This Year Transaction'}">
+                                         <SCRIPT LANGUAGE="Javascript" SRC="../theme_assets/FusionCharts/FusionCharts.js">
+                                    </SCRIPT>
+
+                                    <script>
+                                        var sty='<styles><definition><style name='myFont' type='font' isHTML='1' bold='1' size='11' color='FFFFFF' /><style name='myShadow' type='shadow' color='333333' angle='45' strength='3'/></definition><application><apply toObject='YAxisValues' styles='myFont,myShadow' /><apply toObject='DataLabels' styles='myFont,myShadow' /><apply toObject='DataValues' styles='myFont,myShadow' /><apply toObject='Caption' styles='myFont,myShadow' /></application></styles>';
+                                    </script>
+                                    <div class="col1-2">
+
+                                        <div class="text" id="PurChart">
+                                        </div>
+                                        <div class="text" id="PurChart1">
+                                        </div>
+                                        <script language="JavaScript">					
+                                            var chart1 = new FusionCharts("../theme_assets/FusionCharts/Charts/MSColumn3D.swf", "chart1Id", "900", "500", "0", "0");		   			
+                                            var xml="";
+                                            xml+='<categories>';
+                                                <ui:repeat value="#{sellBean.monthAll}"   var="data">
+                                                xml+='<category label='#{data}'/>';
+                                                </ui:repeat>
+                                                xml+='</categories>';
+                                            xml+='<dataset seriesName='Buy' color='F6BD0F' showValues='0'>';
+                                            <ui:repeat value="#{sellBean.monthAll}"   var="month">
+                                                <ui:repeat value="#{sellBean.monthWiseTotal}"   var="data">
+                                                <h:panelGroup rendered="#{ data.get(1) eq 'B' and  data.get(2) eq month }">
+                                                xml+='<set value='#{data.get(0)}'/>';
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{ data.get(1) eq 'B' and  data.get(2)  eq not month }">
+                                                xml+='<set value='0'/>';
+                                                </h:panelGroup>
+                                                </ui:repeat>
+                                                 </ui:repeat> 
+                                                xml+='</dataset>'
+                                            xml+='<dataset seriesName='Sell' color='8BBA00' showValues='0'>';
+                                            <ui:repeat value="#{sellBean.monthAll}"   var="month">
+                                                <ui:repeat value="#{sellBean.monthWiseTotal}"   var="data">
+                                                
+                                                <h:panelGroup rendered="#{ data.get(1) eq 'S' and  data.get(2) eq month}">
+                                                xml+='<set value='#{data.get(0)}'/>';
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{ data.get(1) eq 'S' and  data.get(2)  eq not month }">
+                                                xml+='<set value='0'/>';
+                                                </h:panelGroup>
+                                                </ui:repeat>
+                                                 </ui:repeat>
+                                                xml+='</dataset>'
+                                                
+                                            chart1.setDataXML('<chart bgAlpha='0,0' caption='Transaction Details'  baseFontSize='12'>'+xml+sty+'</chart>');
+                                            chart1.setTransparent(true);
+                                            chart1.render("PurChart");
+                                            var myChart = new FusionCharts("../theme_assets/FusionCharts/Charts/SSGrid.swf", "myGrid1", "900", "100", "0", "0");
+                                            myChart.addVariable('showPercentValues', '1');
+                                            myChart.setDataXML("<chart >"+xml+"</chart>");
+                                            myChart.render("PurChart1");
+                                        </script>
+
+                                    </div>
+                                
+                                        </ui:fragment>
+                              </h:panelGroup>
+                            </div>
+
+                        </div>
+
+                    </div>                                                             
+
+
+                </section>  
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

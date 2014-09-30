@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+
+
+                        <h1 id="main-heading">
+                            <u> Market News</u>
+                        </h1>
+                    </div>
+
+                    <div id="main-content">
+                         <h:form >
+                         <div class="control-group">
+                                        <label class="control-label">Enter Stock Symbol: </label>
+                                        <div class="controls">
+                                             <p:autoComplete styleClass="text-input span3" value="#{stockDetailBean.stock_Symbol_Search}" completeMethod="#{stockDetailBean.complete}"/>
+                                          </div>
+                                        
+                         </div>
+                        <div class="control-group">
+                                        <label class="control-label"></label>
+                                        <div class="controls">
+                                           
+                                              
+                                                <h:commandButton value="Get" class="btn btn-info" action="#{stockDetailBean.News()}"/>
+                                            
+                                        </div>
+                                        
+                         </div>
+                         </h:form>
+                        <div class="row-fluid">
+                                                               
+
+                            <div class="span5">
+                             
+                               
+                                    <iframe allowtransparency="true"  frameborder="0" scrolling="no" src="http://api.finance.yahoo.com/instrument/1.0/#{stockDetailBean.stock_Symbol},GOOG,ORCL/badge;chart=1y,,comparison;news=10;quote/HTML/f.white?AppID=i8iqZkpHzHwNIT0Gco.XhvRgUQybBgdDbcma&amp;sig=1XOsRWLix7Bs4ISqBDtDtejtZEs-&amp;t=1357211528001" width="300px" height="750px"><a href="http://finance.yahoo.com">Yahoo! Finance</a><br/><a href="http://finance.yahoo.com/q?s=MSFT">Quote for MSFT</a></iframe>
+                               
+                            </div>
+                           <div class="span7">
+                                    	<div class="section">
+                                            <h4 class="sub"><span>Monthly Chart</span></h4>
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="#tab-001" data-toggle="tab">5 Day</a></li>
+                                                <li><a href="#tab-002" data-toggle="tab">3 Month</a></li>
+                                                <li><a href="#tab-003" data-toggle="tab">6 Month</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab-001">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://ichart.finance.yahoo.com/w?s=#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                                <div class="tab-pane" id="tab-002">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://chart.finance.yahoo.com/c/3m/#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                                <div class="tab-pane" id="tab-003">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://chart.finance.yahoo.com/c/6m/#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    	
+                                    </div>
+                            
+                            
+                              <div class="span7">
+                                    	<div class="section">
+                                            <h4 class="sub"><span>Yearly Charts</span></h4>
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="#tab-004" data-toggle="tab">2 Year</a></li>
+                                                <li><a href="#tab-005" data-toggle="tab">5 Year</a></li>
+                                                <li><a href="#tab-006" data-toggle="tab">Maximum</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab-004">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://chart.finance.yahoo.com/c/2y/#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                                <div class="tab-pane" id="tab-005">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://chart.finance.yahoo.com/c/5y/#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                                <div class="tab-pane" id="tab-006">
+                                                    <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://chart.finance.yahoo.com/c/my/#{stockDetailBean.stock_Symbol}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    	
+                                    </div>
+                                                      
+                                    	
+                                           
+        </div>
+                                    	
+
+                        </div>
+                                                                              
+                </section>  
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

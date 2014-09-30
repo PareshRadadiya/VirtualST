@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                       
+                        <h1 id="main-heading">
+                            <u>Stock Searching </u>
+                        </h1>
+                    </div>
+
+                    <div id="main-content">
+                        <ui:fragment rendered="#{not empty stockDetailBean.operation}">
+                                  <h:outputText escape="false" value="#{stockDetailBean.operation}"/>
+                        </ui:fragment> 
+                           <h:form >
+                         <div class="control-group">
+                                        <label class="control-label">Enter Stock Symbol: </label>
+                                        <div class="controls">
+                                           
+                                                 <p:autoComplete styleClass="text-input span3" value="#{stockDetailBean.stock_Symbol_Search}" completeMethod="#{stockDetailBean.complete}"/>
+                                              
+                                           
+                                        </div>
+                                        
+                         </div>
+                        <div class="control-group">
+                                        <label class="control-label"></label>
+                                        <div class="controls">
+                                           
+                                              
+                                                <h:commandButton value="Get" class="btn btn-info" action="#{stockDetailBean.StockSearch}"/>
+                                            
+                                        </div>
+                                        
+                         </div>
+                         </h:form>
+  
+                       
+                       
+                        <div class="row-fluid">
+                            <div class="span6 widget">
+                                <div class="widget-header">
+                                    <span class="title">Today's Stock Details</span>
+                                </div>
+                                <div class="widget-content table-container">
+                                    <table class="table table-striped table-detail-view">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <b> <h5><h:outputText value="#{stockDetailBean.stock_Name}"/></h5></b>   
+
+                                                </td>
+                                                <td>
+                                                     <a class="btn btn-success" href="#" data-toggle="modal" data-target="#buy-stock">Buy</a>
+                                                      
+                                                </td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Symbol</th>
+                                                <td> <h:outputText value="#{stockDetailBean.stock_Symbol}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Name</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_Name}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Stock Price</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_Price}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Stock Open</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_Open}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Day's High</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_DaysHigh}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Day's Low</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_DaysLow}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Stock Change</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_Change}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Stock Volume</th>
+                                                <td><h:outputText value="#{stockDetailBean.stock_Volume}"/></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="span6 widget">
+                                <div class="widget-header">
+                                    <span class="title"><i class="icon-graph"></i>1 Day Chart</span>
+                                </div>
+                                <div class="widget-content">
+                                    <div>   
+                                         <h:graphicImage alt="#{stockDetailBean.stock_Name}" url="http://ichart.finance.yahoo.com/b?s=#{stockDetailBean.stock_Symbol}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> 
+</div>
+
+                   
+
+
+
+                </section>  
+
+            </ui:define>
+
+        </ui:composition> 
+    </body>
+</html>

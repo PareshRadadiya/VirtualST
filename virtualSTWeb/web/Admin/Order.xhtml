@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+               
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        
+                        <h1 id="main-heading">
+                            <u>Orders Report</u>
+                        </h1>
+                    </div>
+
+                    <div id="main-content">
+                       
+                         <h:form>
+                          <ui:fragment rendered="#{not empty orderBean.operation}">
+                               <div class="alert alert-success fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Success:</strong><br/>
+                                        Record is #{orderBean.operation}  Successfully....
+                               </div>
+                              </ui:fragment>
+                              <div class="row-fluid">
+                                    <div class="span12 widget">
+                                        <div class="widget-header light_rounded">
+                                            <span class="title">Custom report generation</span>
+                                        </div>
+                                        <div class="widget-content">
+                                          <div class="control-group">
+                                            <label class="control-label">By Order Type: </label>
+                                            <div class="controls">
+                                                <h:selectOneMenu  value="#{orderBean.orderType}" class="select2-select-00 span5" id="OrderType" >
+                                                      <f:selectItem itemValue="" itemLabel="Select Type"/> 
+                                                    <f:selectItem itemValue="B" itemLabel="Buy"/>
+                                                      <f:selectItem itemValue="S" itemLabel="Sell"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                         </div>
+                       <div class="control-group">
+                                            <label class="control-label">By Script Id :</label>
+                                            <div class="controls">
+                                                <h:inputText   value="#{orderBean.scriptId}" class="text-input span5" /> 
+                                            </div>
+                        </div>
+                        <div class="control-group">
+                                            <label class="control-label">From Date</label>
+                                            <div class="controls">
+                                                <p:calendar value="#{orderBean.from}" styleClass="span12 datepicker-cmy" />  
+                                            </div>
+                        </div>
+                         <div class="control-group">
+                                            <label class="control-label">To Date</label>
+                                            <div class="controls">
+                                                <p:calendar value="#{orderBean.to}" styleClass="span12 datepicker-cmy"/>  
+                                            </div>
+                        </div>
+                                            <h:commandButton value="Search"  class="btn btn-info" action="#{orderBean.Search}">
+                           </h:commandButton>
+                                        </div>
+                                    
+								</div>
+                        </div>
+                        <span id="pnotify-trigger-7">
+                            <h:commandButton value="Delete"  class="btn btn-danger" action="#{orderBean.deleteOrder()}">
+                                <f:ajax event="action" execute="@form" render="@all" />
+                            </h:commandButton>
+                        </span>
+                             <h:outputLink target="newPopup" value="Order_Export.xhtml" class="btn btn-success">Export Data</h:outputLink> 
+                                 
+                        <br/>
+                        <hr/>
+                        
+                        <div class="row-fluid">
+                            <div class="span12 widget">
+                                <div class="widget-header">
+                                    <span class="title">Orders Details</span>
+                                </div>
+                                <div class="widget-content table-container">
+                                   
+                                    
+                                    <table id="demo-dtable-02" class="table table-striped  table-checkable">
+                                        <thead>
+                                            <tr>
+                                                                                                            <th class="checkbox-column">
+                                                                <input type="checkbox" class="uniform"/>
+                                                            </th>
+
+                                                <th>Script ID</th>
+                                                <th>Trader Name</th>
+                                                <th>Volume</th>
+                                                <th>Price</th>
+                                                <th>Order Date</th>
+                                                <th>Order Type</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ui:repeat  value="#{orderBean.objTraderOrder}" var="data">
+                                                
+                                            <tr>
+                                                <td class="checkbox-column">                                                  
+                                                    <h:selectBooleanCheckbox  value="#{orderBean.selectedIds[data.orderId]}"  class="uniform"  /> 
+                                                    
+                                                </td>
+                                                <td><h:commandLink  value="#{data.scriptId.scriptId}" action="#{orderBean.renderForm(data.orderId)}"/></td>
+                                               <td><h:outputText value="#{data.traderId.traderName}"/></td>
+                                                <td><h:outputText value="#{data.volume}"/></td>
+                                                <td><h:outputText value="#{data.price}"/></td>
+                                                <td><h:outputText value="#{data.orderDate.toGregorianCalendar().time}"><f:convertDateTime type="both" pattern="dd-mm-yyyy" /></h:outputText></td>
+                                                <td><h:outputText value="#{data.orderType eq 'B'?'Buy':'Sell'}"/></td>
+                                               
+                                            </tr>
+                                                    
+                                            </ui:repeat>
+                                          
+                                        </tbody>
+                                        
+                                    </table>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                          </h:form>
+                    </div>        
+                </section>  
+                  
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

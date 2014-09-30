@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+
+       <ui:composition template="./../Template.xhtml">
+          <ui:define name="content">
+
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        
+                        <h1 id="main-heading">
+                            <u>Adding Brokers Information</u>
+                        </h1>
+                    </div>
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>  Broker</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+                                       
+                                        <table width="100%">
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input11">Broker Name<span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:inputText value="#{brokerBean.brokerName}" class="validate[required] text-input span11" id="Broker"  required="true"  />    
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input12">Trade Name<span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText value="#{brokerBean.tradeName}" class="validate[required] text-input span11" id="Trade" required="true" />
+                                                </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input13">Address <span  class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:inputTextarea value="#{brokerBean.correspondOffice}" class="validate[required] required span12" id="Address" required="true"/>
+                                                    </div>
+                                                </div>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                        <label class="control-label">State <span class="required">*</span></label>
+                                                        <div class="controls">
+                                                        <h:selectOneMenu id="state" value="#{brokerBean.stateId}" class="select2-select-00 span11 validate[required]">  
+                                                            <f:selectItem  itemLabel="Select City" itemValue=""  />  
+                                                            <f:selectItems value="#{brokerBean.allStates}" var="mydata" itemLabel="#{mydata.stateName}" itemValue="#{mydata.stateId}"/>  
+                                                            <f:ajax  event="change" render="city"   listener="#{brokerBean.handleCityChange()}" />                                                                                                   
+                                                        </h:selectOneMenu>  
+                                                        </div>
+                                                    </div>                                                   
+                                                </td>
+                                                <td>
+                                                <div class="control-group">
+                                                <label class="control-label">City <span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:selectOneMenu  id="city"  value="#{brokerBean.cityName}" >  
+                                                            <f:selectItem itemLabel="Select City" />  
+                                                            <f:selectItems value="#{brokerBean.objcity}" var="city" itemLabel="#{city.cityName}"  itemValue="#{city.cityName}" />  
+                                                        </h:selectOneMenu> 
+                                                    </div>
+                                                </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                     <div class="control-group">
+                                                <label class="control-label" for="input16">Clearing No <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText value="#{brokerBean.clearingNo}" class="validate[required,custom[integer]] span11" id="Clearing" required="true"/>
+                                                </div>
+                                            </div>
+                                                </td>
+                                                <td>
+                                                    <div class="control-group">
+                                                <label class="control-label">SEBI No <span class="required">*</span></label>
+                                                <div class="controls">
+
+                                                    <h:inputText value="#{brokerBean.sebiNo}"  class="validate[required,custom[integer]] span11" id="SEBI" required="true" />
+                                                </div>
+                                            </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input11">Email<span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <h:inputText  value="#{brokerBean.corporateEmail}" class="validate[required,custom[email]] text-input span11" id="Email" required="true"  />    
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                                   <td>
+                                                    <div class="control-group">
+                                                <label class="control-label">Phone No. <span class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText  value="#{brokerBean.phoneNo}" class="validate[required,custom[integer]] span11" id="phno" required="true" />
+                                                </div>
+                                            </div>
+                                                </td>
+                                                </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="control-group">
+                                                <label class="control-label">Deposit<span 
+                                                        class="required">*</span></label>
+                                                <div class="controls">
+                                                    <h:inputText  value="#{brokerBean.deposit}" class="validate[required,custom[number],min[1000]] span12" id="Deposit" required="true" />
+                                                </div>
+                                            </div>
+                                                </td>
+                                               
+                                            </tr> 
+                                        </table>
+                                        
+                                        <h:inputHidden value="#{brokerBean.brokerId}"/>
+                                        <h:inputHidden value="#{brokerBean.userId}"/>
+                                        <h:inputHidden value="#{brokerBean.fund}"/>
+                                        <div class="form-actions">
+                                                 
+                                            <h:commandButton  value="Upadte" rendered="#{sessionScope.action eq 'update'}"      action="#{brokerBean.updateBroker()}" class="btn btn-primary"/>
+                                                    
+                                                       
+                                            <span>  <h:commandButton value="Add"  rendered="#{sessionScope.action eq 'add'}"  action="#{brokerBean.addBroker()}" class="btn btn-primary"/> </span>
+                                                  
+                                               
+                                            
+                                             <h:outputLink value="Broker.xhtml" class="btn">cancel</h:outputLink>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </section>
+            </ui:define>Update
+        </ui:composition>
+    </h:body>
+</html>

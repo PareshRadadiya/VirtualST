@@ -1,0 +1,1355 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://Service/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Service/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/stService/stService?xsd=1"/>
+
+<xs:element name="addAdmin" type="tns:addAdmin"/>
+
+<xs:element name="addBroker" type="tns:addBroker"/>
+
+<xs:element name="addBrokerFund" type="tns:addBrokerFund"/>
+
+<xs:element name="addNews" type="tns:addNews"/>
+
+<xs:element name="addOrder" type="tns:addOrder"/>
+
+<xs:element name="addStock" type="tns:addStock"/>
+
+<xs:element name="addTrader" type="tns:addTrader"/>
+
+<xs:element name="addTraderFund" type="tns:addTraderFund"/>
+
+<xs:element name="addTransaction" type="tns:addTransaction"/>
+
+<xs:element name="addUser" type="tns:addUser"/>
+
+<xs:element name="addUserSGroup" type="tns:addUserSGroup"/>
+
+<xs:element name="adminMaster" type="tns:adminMaster"/>
+
+<xs:element name="brokerMaster" type="tns:brokerMaster"/>
+
+<xs:element name="changePassword" type="tns:changePassword"/>
+
+<xs:element name="checkUserAvability" type="tns:checkUserAvability"/>
+
+<xs:element name="checkUserAvabilityResponse" type="tns:checkUserAvabilityResponse"/>
+
+<xs:element name="cityMaster" type="tns:cityMaster"/>
+
+<xs:element name="deleteAdmin" type="tns:deleteAdmin"/>
+
+<xs:element name="deleteBroker" type="tns:deleteBroker"/>
+
+<xs:element name="deleteNews" type="tns:deleteNews"/>
+
+<xs:element name="deleteOrder" type="tns:deleteOrder"/>
+
+<xs:element name="deleteStock" type="tns:deleteStock"/>
+
+<xs:element name="deleteTrader" type="tns:deleteTrader"/>
+
+<xs:element name="deleteUser" type="tns:deleteUser"/>
+
+<xs:element name="deleteUserGroup" type="tns:deleteUserGroup"/>
+
+<xs:element name="getAdminByUserId" type="tns:getAdminByUserId"/>
+
+<xs:element name="getAdminByUserIdResponse" type="tns:getAdminByUserIdResponse"/>
+
+<xs:element name="getAdminDetails" type="tns:getAdminDetails"/>
+
+<xs:element name="getAdminDetailsResponse" type="tns:getAdminDetailsResponse"/>
+
+<xs:element name="getAllCity" type="tns:getAllCity"/>
+
+<xs:element name="getAllCityResponse" type="tns:getAllCityResponse"/>
+
+<xs:element name="getAllStates" type="tns:getAllStates"/>
+
+<xs:element name="getAllStatesResponse" type="tns:getAllStatesResponse"/>
+
+<xs:element name="getAuto" type="tns:getAuto"/>
+
+<xs:element name="getAutoResponse" type="tns:getAutoResponse"/>
+
+<xs:element name="getBrokerByUserId" type="tns:getBrokerByUserId"/>
+
+<xs:element name="getBrokerByUserIdResponse" type="tns:getBrokerByUserIdResponse"/>
+
+<xs:element name="getBrokerDetails" type="tns:getBrokerDetails"/>
+
+<xs:element name="getBrokerDetailsResponse" type="tns:getBrokerDetailsResponse"/>
+
+<xs:element name="getBrokerDetails_1" type="tns:getBrokerDetails_1"/>
+
+<xs:element name="getBrokerDetails_1Response" type="tns:getBrokerDetails_1Response"/>
+
+<xs:element name="getCityByState" type="tns:getCityByState"/>
+
+<xs:element name="getCityByStateResponse" type="tns:getCityByStateResponse"/>
+
+<xs:element name="getMonthAll" type="tns:getMonthAll"/>
+
+<xs:element name="getMonthAllResponse" type="tns:getMonthAllResponse"/>
+
+<xs:element name="getMonthWiseMonth" type="tns:getMonthWiseMonth"/>
+
+<xs:element name="getMonthWiseMonthResponse" type="tns:getMonthWiseMonthResponse"/>
+
+<xs:element name="getMonthWiseTotal" type="tns:getMonthWiseTotal"/>
+
+<xs:element name="getMonthWiseTotalResponse" type="tns:getMonthWiseTotalResponse"/>
+
+<xs:element name="getNewsDetails" type="tns:getNewsDetails"/>
+
+<xs:element name="getNewsDetailsResponse" type="tns:getNewsDetailsResponse"/>
+
+<xs:element name="getNewsDetails_1" type="tns:getNewsDetails_1"/>
+
+<xs:element name="getNewsDetails_1Response" type="tns:getNewsDetails_1Response"/>
+
+<xs:element name="getObjBroker" type="tns:getObjBroker"/>
+
+<xs:element name="getObjBrokerResponse" type="tns:getObjBrokerResponse"/>
+
+<xs:element name="getObjOrderDetails" type="tns:getObjOrderDetails"/>
+
+<xs:element name="getObjOrderDetailsResponse" type="tns:getObjOrderDetailsResponse"/>
+
+<xs:element name="getObjState" type="tns:getObjState"/>
+
+<xs:element name="getObjStateResponse" type="tns:getObjStateResponse"/>
+
+<xs:element name="getObjTraddersStock" type="tns:getObjTraddersStock"/>
+
+<xs:element name="getObjTraddersStockResponse" type="tns:getObjTraddersStockResponse"/>
+
+<xs:element name="getObjTrader" type="tns:getObjTrader"/>
+
+<xs:element name="getObjTraderResponse" type="tns:getObjTraderResponse"/>
+
+<xs:element name="getObjUserDetails" type="tns:getObjUserDetails"/>
+
+<xs:element name="getObjUserDetailsResponse" type="tns:getObjUserDetailsResponse"/>
+
+<xs:element name="getOrderDetails" type="tns:getOrderDetails"/>
+
+<xs:element name="getOrderDetailsResponse" type="tns:getOrderDetailsResponse"/>
+
+<xs:element name="getOrderDetails_1" type="tns:getOrderDetails_1"/>
+
+<xs:element name="getOrderDetails_1Response" type="tns:getOrderDetails_1Response"/>
+
+<xs:element name="getPendingOrder" type="tns:getPendingOrder"/>
+
+<xs:element name="getPendingOrderResponse" type="tns:getPendingOrderResponse"/>
+
+<xs:element name="getPendingOrder_1" type="tns:getPendingOrder_1"/>
+
+<xs:element name="getPendingOrder_1Response" type="tns:getPendingOrder_1Response"/>
+
+<xs:element name="getPendingRegistation" type="tns:getPendingRegistation"/>
+
+<xs:element name="getPendingRegistationResponse" type="tns:getPendingRegistationResponse"/>
+
+<xs:element name="getQuotes" type="tns:getQuotes"/>
+
+<xs:element name="getQuotesResponse" type="tns:getQuotesResponse"/>
+
+<xs:element name="getRegistrationDetails" type="tns:getRegistrationDetails"/>
+
+<xs:element name="getRegistrationDetailsResponse" type="tns:getRegistrationDetailsResponse"/>
+
+<xs:element name="getRegistrationDetails_1" type="tns:getRegistrationDetails_1"/>
+
+<xs:element name="getRegistrationDetails_1Response" type="tns:getRegistrationDetails_1Response"/>
+
+<xs:element name="getState" type="tns:getState"/>
+
+<xs:element name="getStateResponse" type="tns:getStateResponse"/>
+
+<xs:element name="getStockDetails" type="tns:getStockDetails"/>
+
+<xs:element name="getStockDetailsResponse" type="tns:getStockDetailsResponse"/>
+
+<xs:element name="getStockDetails_1" type="tns:getStockDetails_1"/>
+
+<xs:element name="getStockDetails_1Response" type="tns:getStockDetails_1Response"/>
+
+<xs:element name="getTraddersStock" type="tns:getTraddersStock"/>
+
+<xs:element name="getTraddersStockResponse" type="tns:getTraddersStockResponse"/>
+
+<xs:element name="getTraddersStock_1" type="tns:getTraddersStock_1"/>
+
+<xs:element name="getTraddersStock_1Response" type="tns:getTraddersStock_1Response"/>
+
+<xs:element name="getTraderByBrokerId" type="tns:getTraderByBrokerId"/>
+
+<xs:element name="getTraderByBrokerIdResponse" type="tns:getTraderByBrokerIdResponse"/>
+
+<xs:element name="getTraderByUserId" type="tns:getTraderByUserId"/>
+
+<xs:element name="getTraderByUserIdResponse" type="tns:getTraderByUserIdResponse"/>
+
+<xs:element name="getTraderDetails" type="tns:getTraderDetails"/>
+
+<xs:element name="getTraderDetailsByBrocker" type="tns:getTraderDetailsByBrocker"/>
+
+<xs:element name="getTraderDetailsByBrockerResponse" type="tns:getTraderDetailsByBrockerResponse"/>
+
+<xs:element name="getTraderDetailsResponse" type="tns:getTraderDetailsResponse"/>
+
+<xs:element name="getTraderDetails_1" type="tns:getTraderDetails_1"/>
+
+<xs:element name="getTraderDetails_1Response" type="tns:getTraderDetails_1Response"/>
+
+<xs:element name="getTransactionBuy" type="tns:getTransactionBuy"/>
+
+<xs:element name="getTransactionBuyResponse" type="tns:getTransactionBuyResponse"/>
+
+<xs:element name="getTransactionBuy_1" type="tns:getTransactionBuy_1"/>
+
+<xs:element name="getTransactionBuy_1Response" type="tns:getTransactionBuy_1Response"/>
+
+<xs:element name="getTransactionBuy_2" type="tns:getTransactionBuy_2"/>
+
+<xs:element name="getTransactionBuy_2Response" type="tns:getTransactionBuy_2Response"/>
+
+<xs:element name="getTransactionDetails" type="tns:getTransactionDetails"/>
+
+<xs:element name="getTransactionDetailsResponse" type="tns:getTransactionDetailsResponse"/>
+
+<xs:element name="getTransactionDetails_1" type="tns:getTransactionDetails_1"/>
+
+<xs:element name="getTransactionDetails_1Response" type="tns:getTransactionDetails_1Response"/>
+
+<xs:element name="getTransactionDetails_2" type="tns:getTransactionDetails_2"/>
+
+<xs:element name="getTransactionDetails_2Response" type="tns:getTransactionDetails_2Response"/>
+
+<xs:element name="getTransactionDetails_3" type="tns:getTransactionDetails_3"/>
+
+<xs:element name="getTransactionDetails_3Response" type="tns:getTransactionDetails_3Response"/>
+
+<xs:element name="getTransactionOfMonth" type="tns:getTransactionOfMonth"/>
+
+<xs:element name="getTransactionOfMonthResponse" type="tns:getTransactionOfMonthResponse"/>
+
+<xs:element name="getTransactionSell" type="tns:getTransactionSell"/>
+
+<xs:element name="getTransactionSellResponse" type="tns:getTransactionSellResponse"/>
+
+<xs:element name="getTransactionSell_1" type="tns:getTransactionSell_1"/>
+
+<xs:element name="getTransactionSell_1Response" type="tns:getTransactionSell_1Response"/>
+
+<xs:element name="getTransactionSell_2" type="tns:getTransactionSell_2"/>
+
+<xs:element name="getTransactionSell_2Response" type="tns:getTransactionSell_2Response"/>
+
+<xs:element name="getUserGroupDetails" type="tns:getUserGroupDetails"/>
+
+<xs:element name="getUserGroupDetailsResponse" type="tns:getUserGroupDetailsResponse"/>
+
+<xs:element name="getUserMasterDetails" type="tns:getUserMasterDetails"/>
+
+<xs:element name="getUserMasterDetailsResponse" type="tns:getUserMasterDetailsResponse"/>
+
+<xs:element name="newsMaster" type="tns:newsMaster"/>
+
+<xs:element name="orderMaster" type="tns:orderMaster"/>
+
+<xs:element name="registrationMst" type="tns:registrationMst"/>
+
+<xs:element name="registrationTrader" type="tns:registrationTrader"/>
+
+<xs:element name="sendMail" type="tns:sendMail"/>
+
+<xs:element name="sendSms" type="tns:sendSms"/>
+
+<xs:element name="stateMaster" type="tns:stateMaster"/>
+
+<xs:element name="stockDetails" type="tns:stockDetails"/>
+
+<xs:element name="traderMaster" type="tns:traderMaster"/>
+
+<xs:element name="traderStock" type="tns:traderStock"/>
+
+<xs:element name="transactionDetails" type="tns:transactionDetails"/>
+
+<xs:element name="updateBroker" type="tns:updateBroker"/>
+
+<xs:element name="updateNews" type="tns:updateNews"/>
+
+<xs:element name="updateOrder" type="tns:updateOrder"/>
+
+<xs:element name="updateRegistration" type="tns:updateRegistration"/>
+
+<xs:element name="updateStock" type="tns:updateStock"/>
+
+<xs:element name="updateTrader" type="tns:updateTrader"/>
+
+<xs:element name="updateUser" type="tns:updateUser"/>
+
+<xs:element name="userGroup" type="tns:userGroup"/>
+
+<xs:element name="userMaster" type="tns:userMaster"/>
+
+<xs:complexType name="addTrader">
+<xs:sequence>
+<xs:element name="trader_name" type="xs:string" minOccurs="0"/>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="deposite" type="xs:double" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="PANno" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneno" type="xs:string" minOccurs="0"/>
+<xs:element name="email_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjTrader">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjTraderResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="traderMaster">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="brokerId" type="tns:brokerMaster" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="deposit" type="xs:double"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="fund" type="xs:double"/>
+<xs:element name="panNo" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="stat" type="xs:string" minOccurs="0"/>
+<xs:element name="traderId" type="xs:double" minOccurs="0"/>
+<xs:element name="traderName" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="tns:userMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="brokerMaster">
+<xs:sequence>
+<xs:element name="brokerId" type="xs:long" minOccurs="0"/>
+<xs:element name="brokerName" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="clearingNo" type="xs:string" minOccurs="0"/>
+<xs:element name="corporateEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="correspondOffice" type="xs:string" minOccurs="0"/>
+<xs:element name="deposit" type="xs:double"/>
+<xs:element name="fund" type="xs:double"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="sebiNo" type="xs:string" minOccurs="0"/>
+<xs:element name="stat" type="xs:string" minOccurs="0"/>
+<xs:element name="tradeName" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="tns:userMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userMaster">
+<xs:sequence>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendSms">
+<xs:sequence>
+<xs:element name="phone" type="xs:anyType" minOccurs="0"/>
+<xs:element name="msg" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNewsDetails_1">
+<xs:sequence>
+<xs:element name="newsId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNewsDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:newsMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="newsMaster">
+<xs:sequence>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+<xs:element name="newsDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="newsId" type="xs:long" minOccurs="0"/>
+<xs:element name="topic" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNewsDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getNewsDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:newsMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTraderFund">
+<xs:sequence>
+<xs:element name="traderId" type="xs:double" minOccurs="0"/>
+<xs:element name="fund" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getOrderDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:orderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderMaster">
+<xs:sequence>
+<xs:element name="orderDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="orderId" type="xs:double" minOccurs="0"/>
+<xs:element name="orderType" type="xs:string" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:double"/>
+<xs:element name="scriptId" type="tns:stockDetails" minOccurs="0"/>
+<xs:element name="traderId" type="tns:traderMaster" minOccurs="0"/>
+<xs:element name="volume" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stockDetails">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="companyName" type="xs:string" minOccurs="0"/>
+<xs:element name="director" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="faceValue" type="xs:int"/>
+<xs:element name="fax" type="xs:string" minOccurs="0"/>
+<xs:element name="groupType" type="xs:string" minOccurs="0"/>
+<xs:element name="industry" type="xs:string" minOccurs="0"/>
+<xs:element name="listingDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="marketLot" type="xs:int"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="scriptCode" type="xs:string" minOccurs="0"/>
+<xs:element name="scriptId" type="xs:string" minOccurs="0"/>
+<xs:element name="stat" type="xs:string" minOccurs="0"/>
+<xs:element name="website" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderDetails_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:orderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addNews">
+<xs:sequence>
+<xs:element name="topic" type="xs:string" minOccurs="0"/>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjTraddersStock">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjTraddersStockResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderStock" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="traderStock">
+<xs:sequence>
+<xs:element ref="tns:stockDetails" minOccurs="0"/>
+<xs:element ref="tns:traderMaster" minOccurs="0"/>
+<xs:element name="traderStockPK" type="tns:traderStockPK" minOccurs="0"/>
+<xs:element name="volume" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="traderStockPK">
+<xs:sequence>
+<xs:element name="script" type="xs:string" minOccurs="0"/>
+<xs:element name="trader" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUser">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserMasterDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getUserMasterDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendMail">
+<xs:sequence>
+<xs:element name="Receiver" type="xs:string" minOccurs="0"/>
+<xs:element name="Sub" type="xs:string" minOccurs="0"/>
+<xs:element name="Msg" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderByUserId">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderByUserIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSell">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSellResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transactionDetails">
+<xs:sequence>
+<xs:element name="brokrage" type="xs:double"/>
+<xs:element name="orderId" type="tns:orderMaster" minOccurs="0"/>
+<xs:element name="transDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="transId" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSell_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSell_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSell_2">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTransactionSell_2Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getState">
+<xs:sequence>
+<xs:element name="state_name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:stateMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stateMaster">
+<xs:sequence>
+<xs:element name="stateId" type="xs:int" minOccurs="0"/>
+<xs:element name="stateName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateTrader">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="trader_name" type="xs:string" minOccurs="0"/>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="deposite" type="xs:double" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="PANno" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneno" type="xs:string" minOccurs="0"/>
+<xs:element name="email_id" type="xs:string" minOccurs="0"/>
+<xs:element name="fund" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkUserAvability">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkUserAvabilityResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUser">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteBroker">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateUser">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePassword">
+<xs:sequence>
+<xs:element name="uname" type="xs:string" minOccurs="0"/>
+<xs:element name="curPwd" type="xs:string" minOccurs="0"/>
+<xs:element name="newPwd" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateRegistration">
+<xs:sequence>
+<xs:element name="guestId" type="xs:int" minOccurs="0"/>
+<xs:element name="guestName" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="brokerId" type="xs:long" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjState">
+<xs:sequence>
+<xs:element name="state_id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjStateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:stateMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_2">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_2Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_3">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="order_type" type="xs:string" minOccurs="0"/>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="order_date_from" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="order_date_to" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionDetails_3Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthWiseTotal">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthWiseTotalResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:stringArray" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAdmin">
+<xs:sequence>
+<xs:element name="userId" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getUserGroupDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getUserGroupDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userGroup" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userGroup">
+<xs:sequence>
+<xs:element name="userGroupPK" type="tns:userGroupPK" minOccurs="0"/>
+<xs:element ref="tns:userMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userGroupPK">
+<xs:sequence>
+<xs:element name="groupType" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addBroker">
+<xs:sequence>
+<xs:element name="broker_name" type="xs:string" minOccurs="0"/>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="correspond_office" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="clearingNo" type="xs:string" minOccurs="0"/>
+<xs:element name="trade_name" type="xs:string" minOccurs="0"/>
+<xs:element name="corporate_email" type="xs:string" minOccurs="0"/>
+<xs:element name="phone_no" type="xs:string" minOccurs="0"/>
+<xs:element name="SEBIno" type="xs:string" minOccurs="0"/>
+<xs:element name="deposit" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateBroker">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+<xs:element name="broker_name" type="xs:string" minOccurs="0"/>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="correspond_office" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="clearingNo" type="xs:string" minOccurs="0"/>
+<xs:element name="trade_name" type="xs:string" minOccurs="0"/>
+<xs:element name="corporate_email" type="xs:string" minOccurs="0"/>
+<xs:element name="phone_no" type="xs:string" minOccurs="0"/>
+<xs:element name="SEBIno" type="xs:string" minOccurs="0"/>
+<xs:element name="deposit" type="xs:double" minOccurs="0"/>
+<xs:element name="fund" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPendingOrder_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="order_type" type="xs:string" minOccurs="0"/>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="order_date_from" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="order_date_to" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPendingOrder_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:orderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPendingOrder">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPendingOrderResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:orderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetailsByBrocker">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetailsByBrockerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUserGroup">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="group" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateStock">
+<xs:sequence>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="script_code" type="xs:string" minOccurs="0"/>
+<xs:element name="group" type="xs:string" minOccurs="0"/>
+<xs:element name="industry" type="xs:string" minOccurs="0"/>
+<xs:element name="market_lot" type="xs:int" minOccurs="0"/>
+<xs:element name="listing_date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="face_value" type="xs:int" minOccurs="0"/>
+<xs:element name="company_name" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneno" type="xs:string" minOccurs="0"/>
+<xs:element name="fax" type="xs:string" minOccurs="0"/>
+<xs:element name="email_id" type="xs:string" minOccurs="0"/>
+<xs:element name="director" type="xs:string" minOccurs="0"/>
+<xs:element name="website" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateOrder">
+<xs:sequence>
+<xs:element name="order_id" type="xs:double" minOccurs="0"/>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="volume" type="xs:long" minOccurs="0"/>
+<xs:element name="price" type="xs:double" minOccurs="0"/>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="order_date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="order_type" type="xs:string" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBrokerByUserId">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBrokerByUserIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:brokerMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthWiseMonth">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthWiseMonthResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraddersStock">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraddersStockResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderStock" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraddersStock_1">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTraddersStock_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:traderStock" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAuto">
+<xs:sequence>
+<xs:element name="Stock_Symbol" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAutoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addUserSGroup">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+<xs:element name="group_type" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetails_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteNews">
+<xs:sequence>
+<xs:element name="news_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addBrokerFund">
+<xs:sequence>
+<xs:element name="brokerId" type="xs:long" minOccurs="0"/>
+<xs:element name="fund" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjUserDetails">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjUserDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminByUserId">
+<xs:sequence>
+<xs:element name="user_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminByUserIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:adminMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminMaster">
+<xs:sequence>
+<xs:element name="adminId" type="xs:int" minOccurs="0"/>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="userId" type="tns:userMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionOfMonth">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTransactionOfMonthResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteStock">
+<xs:sequence>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCity">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCityResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cityMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cityMaster">
+<xs:sequence>
+<xs:element name="cityId" type="xs:int" minOccurs="0"/>
+<xs:element name="cityName" type="xs:string" minOccurs="0"/>
+<xs:element name="stateId" type="tns:stateMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBrokerDetails_1">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBrokerDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:brokerMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBrokerDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getBrokerDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:brokerMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addOrder">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+<xs:element name="volume" type="xs:long" minOccurs="0"/>
+<xs:element name="price" type="xs:double" minOccurs="0"/>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="order_date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="order_type" type="xs:string" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteOrder">
+<xs:sequence>
+<xs:element name="order_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllStates">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllStatesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:stateMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateNews">
+<xs:sequence>
+<xs:element name="news_id" type="xs:long" minOccurs="0"/>
+<xs:element name="topic" type="xs:string" minOccurs="0"/>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjBroker">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjBrokerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:brokerMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuotes">
+<xs:sequence>
+<xs:element name="Stock_Symbol" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuotesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRegistrationDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getRegistrationDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:registrationMst" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrationMst">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="brokerId" type="tns:brokerMaster" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="guestId" type="xs:int" minOccurs="0"/>
+<xs:element name="guestName" type="xs:string" minOccurs="0"/>
+<xs:element name="panNo" type="xs:string" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="pincode" type="xs:string" minOccurs="0"/>
+<xs:element name="stat" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRegistrationDetails_1">
+<xs:sequence>
+<xs:element name="guestId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRegistrationDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:registrationMst" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAdminDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:adminMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStockDetails_1">
+<xs:sequence>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStockDetails_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:stockDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStockDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getStockDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:stockDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addStock">
+<xs:sequence>
+<xs:element name="script_id" type="xs:string" minOccurs="0"/>
+<xs:element name="script_code" type="xs:string" minOccurs="0"/>
+<xs:element name="group" type="xs:string" minOccurs="0"/>
+<xs:element name="industry" type="xs:string" minOccurs="0"/>
+<xs:element name="market_lot" type="xs:int" minOccurs="0"/>
+<xs:element name="listing_date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="face_value" type="xs:int" minOccurs="0"/>
+<xs:element name="company_name" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="state" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneno" type="xs:string" minOccurs="0"/>
+<xs:element name="fax" type="xs:string" minOccurs="0"/>
+<xs:element name="email_id" type="xs:string" minOccurs="0"/>
+<xs:element name="director" type="xs:string" minOccurs="0"/>
+<xs:element name="website" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteTrader">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addTransaction">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getObjOrderDetails">
+<xs:sequence>
+<xs:element name="order_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getObjOrderDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:orderMaster" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPendingRegistation">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPendingRegistationResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:registrationMst" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthAll">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMonthAllResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuy_1">
+<xs:sequence>
+<xs:element name="trader_id" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuy_1Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuy">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuyResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuy_2">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTransactionBuy_2Response">
+<xs:sequence>
+<xs:element name="return" type="tns:transactionDetails" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCityByState">
+<xs:sequence>
+<xs:element name="stateId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCityByStateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cityMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderByBrokerId">
+<xs:sequence>
+<xs:element name="broker_id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTraderByBrokerIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:traderMaster" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrationTrader">
+<xs:sequence>
+<xs:element name="guestName" type="xs:string" minOccurs="0"/>
+<xs:element name="emailId" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="stat" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="pan" type="xs:string" minOccurs="0"/>
+<xs:element name="brokerId" type="xs:long" minOccurs="0"/>
+<xs:element name="pending" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAdmin">
+<xs:sequence>
+<xs:element name="adminId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+     >
+    <h:head>
+
+
+    </h:head>
+    <h:body>
+
+        <ui:composition template="guestTemplate.xhtml">
+            <ui:define name="content">
+                <div id="wrapper-content">
+                    <div class="container">
+                        <div class="twelve columns">
+                            <div id="content" class="inner">
+
+                                <div class="eight columns alpha">
+                                    <h1 class="pagetitle">Guest Registration</h1>
+
+                                    <div id="contactform">
+                                        <h:form id="formID">
+                                            <fieldset>
+                                                <label for="name" id="name_label">Name<br /></label>
+                                                <h:inputText id="name"  value="#{registrationBean.traderName}" class="validate[required] text-input span11" required="true" />
+                                                <label for="email" id="email_label">E-mail<br /></label>
+                                                <h:inputText id="email"  value="#{registrationBean.emailId}" class="validate[required,custom[email]] text-input span11" required="true"/>
+                                                <label for="msg" id="msg_label">Phone No</label>
+                                                <h:inputText id="phoneno"  value="#{registrationBean.phoneNo}" class="validate[required,custom[onlyNumberSp],minSize[10],maxSize[10]] span11" required="true"/>
+                                                <label for="msg" id="msg_label">Address</label>
+                                                <h:inputTextarea cols="60" rows="6" value="#{registrationBean.address}" class="validate[required] required span12" required="true" id="address" /> <br class="clear" /><br/>
+                                                <label for="name" id="name_label">State <br /></label>
+                                                <h:selectOneMenu id="state" value="#{registrationBean.stateId}" class="select2-select-00 span11 validate[required]">  
+                                                            <f:selectItem  itemLabel="Select State" itemValue=""  />  
+                                                            <f:selectItems value="#{registrationBean.allStates}" var="mydata" itemLabel="#{mydata.stateName}" itemValue="#{mydata.stateId}"/>  
+                                                            <f:ajax  event="change" render="city"   listener="#{registrationBean.handleCityChange()}" />                                                                                                   
+                                               </h:selectOneMenu>  
+                                                <label for="name" id="name_label">City <br /></label>
+                                                <h:selectOneMenu  id="city"  value="#{registrationBean.cityName}" >  
+                                                            <f:selectItem itemLabel="Select City" />  
+                                                            <f:selectItems value="#{registrationBean.objcity}" var="city" itemLabel="#{city.cityName}"  itemValue="#{city.cityName}" />  
+                                                 </h:selectOneMenu>
+                                                <br/>
+                                                <label for="email" id="email_label">Pin Code<br /></label>
+                                                <h:inputText  id="pin"  value="#{registrationBean.pin}" class="validate[required,custom[onlyNumberSp],minSize[6],maxSize[6]] span11" required="true"/>
+                                                <label for="msg" id="msg_label">Pan Card No.</label>
+                                                <h:inputText id="panno"  value="#{registrationBean.panNo}" class="validate[required,custom[onlyLetterNumber],minSize[11],maxSize[11]] span11" required="true"/><br/><br/>
+                                                <label for="msg" id="msg_label">Broker Name</label>
+                                                <h:selectOneMenu id="broker_id" value="#{registrationBean.brokerId}" required="true">  
+                                                    <f:selectItem itemLabel="Select Broker"  />  
+                                                    <f:selectItems value="#{registrationBean.brokerDetails}" var="mydata" itemLabel="#{mydata.brokerName}" itemValue="#{mydata.brokerId}"/>  
+                                                    
+                                                </h:selectOneMenu>  <br/><br/>
+                                                <h:commandButton  id="submit_btn" action="#{registrationBean.registrationTrader()}" value="Register"/><br/>
+                                            </fieldset>
+
+                                            <br class="clear" />
+                                        </h:form>
+                                    </div><!-- end #form -->
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="four columns omega">
+                                    <div id="sidebar">
+                                        <ul>
+                                            <li class="widget-container">
+                                                <h2 class="widget-title">Our Address</h2>
+                                                <div class="textwidget">
+                                                    <strong>Address Info</strong><br />
+                                                    1234 Address City, TS 56789<br />
+                                                    City, Country<br />
+                                                    Telp : +01 2345 678<br/>
+                                                    Fax  : +01 2345 679
+                                                </div>
+                                            </li>
+                                            <li class="widget-container">
+                                                <h2 class="widget-title">Our Location</h2>
+                                                <div class="textwidget">
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div><!-- #content -->	
+                        </div>
+                    </div>
+                </div><!-- end #wrapper-content -->
+            </ui:define>
+
+
+
+        </ui:composition>
+
+    </h:body>
+</html>

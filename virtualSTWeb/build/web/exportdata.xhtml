@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+             <h:commandLink value="xls">  
+
+                <p:dataExporter type="xls" target="tbl" fileName="BrokerDetails" />  
+            </h:commandLink>  
+
+            <h:commandLink value="pdf">  
+
+                <p:dataExporter type="pdf" target="tbl" fileName="BrokerDetails" />  
+            </h:commandLink>  
+
+            
+            <p:dataTable id="tbl" var="data" value="#{brokerBean.brokerDetails}" > 
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Broker Name" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.brokerName}" />  
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Trade Name" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.tradeName}" />  
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="SEBI No" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.sebiNo}" />  
+                </p:column>
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Address" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.correspondOffice}," /> 
+                    <h:outputText value="#{data.stat}," /> 
+                    <h:outputText value="#{data.city}." /> 
+                </p:column>  
+
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Phone No" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.phoneNo}" />  
+                </p:column>  
+                
+              
+
+               
+
+               
+
+            </p:dataTable>  
+
+           
+
+
+
+        </h:form>
+    </h:body>
+</html>
+

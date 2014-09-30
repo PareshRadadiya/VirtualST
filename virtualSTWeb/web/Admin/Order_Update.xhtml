@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../Template.xhtml">
+
+            
+
+            <ui:define name="content">
+                <section id="main" class="clearfix">
+                    <div id="main-header" class="page-header">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>MoonCake
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#">Table</a>
+                                <span class="divider">&raquo;</span>
+                            </li>
+                            <li>
+                                <a href="#"> Order</a>
+                            </li>
+
+                        </ul>
+
+                        <h1 id="main-heading">
+                            Order Integration <span>This page shows Order </span>
+                        </h1>
+                    </div>
+                
+                    <h:form id="formID"> 
+                        <div id="main-content">
+                            <div class="row-fluid">								
+                                <div class="span12 widget">
+                                    <div class="widget-header">
+                                        <span class="title"><i class="icon-tag"></i>#{orderBean.scriptId}</span>
+                                    </div>
+                                    <div class="widget-content form-container">
+                                       
+                                        <table width="100%">
+                                            
+                                           
+                                            <tr>
+                                                <td>
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input12">Price <span class="required">*</span></label>
+                                                <div class="controls">
+                                                     <p:inputText  value="#{orderBean.price}"  id="Price" styleClass="text-input span11"  required="true">
+                                                        <f:validateLongRange maximum="99999999" minimum="0"/>
+                                                              <p:ajax update="btnUpdate msgPrice" event="keyup" />  
+                                                        </p:inputText>
+                                                        <p:message for="Price"   id="msgPrice" display="icon"/>  
+                                                </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                 <tr>
+                                                <td> 
+                                                    <div class="control-group">
+                                                    <label class="control-label" for="input11"> Volume <span class="required">*</span></label>
+                                                    <div class="controls">
+                                                        <p:inputText   value="#{orderBean.volume}" styleClass="text-input span11" id="volume" required="true"  > 
+                                                            <p:ajax event="keyup"   process="volume traderId scriptId orderType Price" update="msg btnUpdate" listener="#{orderBean.checkStock()}"/> 
+                                                             <f:validateLongRange maximum="9999999999" minimum="0"/>
+                                                    </p:inputText>  
+                                                         <h:outputText escape="false"  id="msg" value="#{orderBean.msg}"/>
+                                                    </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                          
+                                          
+                                        <h:inputHidden id="orderId"  value="#{orderBean.orderId}"/>
+                                        <h:inputHidden id="orderType" value="#{orderBean.orderType}" />
+                                        <h:inputHidden id="pending" value="#{orderBean.pending}" />
+                                        
+                                        <h:inputHidden id="traderId" value="#{orderBean.traderId}" />
+                                        <h:inputHidden id="scriptId" value="#{orderBean.scriptId}" />
+                                     
+                                        </table>
+                                        
+                                                                            
+                                        <div class="form-actions" >
+                                            
+                                                
+                                            <h:commandButton value="Update"  id="btnUpdate" disabled="#{orderBean.rend or facesContext.validationFailed}"   action="#{orderBean.updateOrder()}" class="btn btn-primary"/>             
+                                                 &nbsp;
+                                                 &nbsp;
+                                             <h:outputLink value="Order.xhtml" class="btn btn-inverse">Cancel</h:outputLink>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                        
+                </section>
+            </ui:define>
+
+           
+
+        </ui:composition>
+
+    </body>
+</html>

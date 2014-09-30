@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Order Report</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            
+                 
+              
+                
+           
+            <p:dataTable id="tbl" var="data" value="#{sessionScope.objTraderOrder}" > 
+
+               <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Script Id" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.scriptId.scriptId}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Trader Name" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.traderId.traderName}" />  
+                </p:column>  
+                
+                
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Volume" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.volume}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Price" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.price}" />  
+                </p:column>  
+                
+                <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Order Date" />  
+                    </f:facet>  
+                    <h:outputText value="#{data.orderDate}" />  
+                </p:column>  
+                
+                 <p:column>  
+                    <f:facet name="header">  
+                        <h:outputText value="Order Type" />  
+                    </f:facet>  
+                     <h:outputText value="#{data.orderType eq 'B'?'Buy':'Sell'}" />  
+                </p:column>  
+
+              </p:dataTable>  
+
+ <h:commandLink>
+                <p:graphicImage height="70" value="../theme_assets/assets/images/Microsoft Office - Excel.png" />
+                <p:dataExporter type="xls" target="tbl" fileName="Order_Report" />
+            </h:commandLink>
+
+            <h:commandLink>
+                <p:graphicImage height="70" value="../theme_assets/assets/images/Acrobat Document.png" />
+                <p:dataExporter type="pdf" target="tbl" fileName="Order_Report" />
+            </h:commandLink>
+
+            
+
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./../guestTemplate.xhtml">
+
+
+            <ui:define name="content">
+
+                <div id="wrapper-content">
+                    <div class="container">
+                        <div class="twelve columns">
+                            <div id="content" class="inner">
+
+                                <div class="eight columns alpha">
+                                    <h1 class="pagetitle">Our Commitment!</h1>
+                                    <p>
+Virtual Stock Trading is strongly committed to your right to privacy and to keeping your personal and financial information secure. To earn your trust and confidence in our commitment, we are fully disclosing our privacy practices. We encourage you to read our privacy statement to understand what types of personally identifiable information we collect and how we use this information.</p>
+                                    <div id="contactform">
+                                        <form id="contact" action="#">
+                                            <fieldset>
+                                                <label for="name" id="name_label">Name <br /></label>
+                                                <input type="text" name="name" id="name"  value="" class="text-input" />
+                                                <label for="email" id="email_label">E-mail<br /></label>
+                                                <input type="text" name="email" id="email"  value="" class="text-input" />
+                                                <label for="msg" id="msg_label">Message</label>
+                                                <textarea cols="60" rows="10" name="msg" id="msg" ></textarea> <br class="clear" />
+                                                <input type="submit" name="submit" class="button" id="submit_btn" value="Send Message"/>
+                                            </fieldset>
+                                        </form>
+                                        <br class="clear" />
+                                        <span class="error" id="name_error">Please enter name !</span>
+                                        <span class="error" id="email_error">Please enter email address !</span>
+                                        <span class="error" id="email_error2">Please enter valid email address !</span>
+                                        <span class="error" id="msg_error">Please enter message !</span>
+                                    </div><!-- end #contactform -->
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="four columns omega">
+                                    <div id="sidebar">
+                                        <ul>
+                                            <li class="widget-container">
+                                                <h2 class="widget-title">Our Address</h2>
+                                                <div class="textwidget">
+                                                    <strong><b><u>Address Info</u></b></strong><br />
+                                                    B-890,Shree-Nivas Complex,<br />NR.I.C Ghandhi High School,<br />
+                                                    Sumul Dairy Road,<br/>
+                                                    Surat, India<br />
+                                                    Mob : <img class="skype_pnh_logo_img" src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/numbers_button_skype_logo.png" />+91 972-570-01120<br/>
+                                                    Fax  : +01 2345 679
+                                                </div>
+                                            </li>
+                                            <li class="widget-container">
+                                                <h2 class="widget-title">Our Location</h2>
+                                                <div class="textwidget">
+                                                    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=+&amp;q=alkapuri+surat&amp;ie=UTF8&amp;hq=alkapuri&amp;hnear=Surat,+Gujarat&amp;ll=21.218986,72.840396&amp;spn=0.052769,0.046094&amp;t=h&amp;output=embed"></iframe><br /><small><a href="http://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=+&amp;q=alkapuri+surat&amp;ie=UTF8&amp;hq=alkapuri&amp;hnear=Surat,+Gujarat&amp;ll=21.218986,72.840396&amp;spn=0.052769,0.046094&amp;t=h" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+                            </div><!-- #content -->	
+                        </div>
+                    </div>
+                </div><!-- end #wrapper-content -->
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
